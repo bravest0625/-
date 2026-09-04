@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>泰泰泰開心了嗎</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bkk: {
+              bg: '#FAF6F0',       // 暖椰奶白背景
+              card: '#FFFFFF',     // 純白卡片
+              text: '#2D2825',     // 深焦糖炭灰
+              sub: '#786C65',      // 柔和次要灰
+              border: '#E8DEC8',   // 藤編暖黃邊框
+              tea: '#C86D3B',      // 泰式奶茶橙 (主色)
+              green: '#2B5F4D',    // 熱帶復古綠 (次主色)
+              gold: '#D99B26',     // 璀璨夕陽金
+              softGreen: '#EAF2ED' // 淺綠底色
+            }
+          },
+          fontFamily: {
+            sans: ['Prompt', 'sans-serif'],
+            serif: ['Noto Serif TC', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF6F0;
+      color: #2D2825;
+      font-family: 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .serif-title {
+      font-family: 'Noto Serif TC', serif;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="pb-24 select-none">
+
+  <header class="bg-bkk-card/90 backdrop-blur-md border-b border-bkk-border sticky top-0 z-30 px-5 py-3.5 shadow-sm flex justify-between items-center">
+    <div>
+      <div class="flex items-center space-x-1.5">
+        <span class="text-[10px] font-bold tracking-widest text-bkk-green bg-bkk-softGreen px-2 py-0.5 rounded-full uppercase">สวัสดี BANGKOK</span>
+      </div>
+      <h1 class="serif-title text-xl font-bold text-bkk-text mt-0.5">泰泰泰開心了嗎</h1>
+    </div>
+    <div class="text-right">
+      <span class="text-xs text-bkk-sub block"><i class="fa-regular fa-calendar text-bkk-tea mr-1"></i>12/24 - 12/29</span>
+      <span class="text-[11px] font-semibold text-bkk-tea bg-bkk-bg px-2 py-0.5 rounded-full border border-bkk-border">BR61 / BR68</span>
+    </div>
+  </header>
+
+  <main class="max-w-md mx-auto px-4 pt-4">
+
+    <section id="sec-plan" class="tab-content space-y-5">
+      
+      <div class="bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm space-y-3 relative overflow-hidden">
+        <div class="absolute -right-4 -bottom-4 text-bkk-tea/5 text-8xl font-black pointer-events-none">BKK</div>
+        <div class="flex items-start justify-between border-b border-bkk-border/80 pb-3">
+          <div class="flex items-center space-x-2.5">
+            <div class="w-8 h-8 rounded-full bg-bkk-softGreen flex items-center justify-center text-bkk-green">
+              <i class="fa-solid fa-plane-departure text-xs"></i>
+            </div>
+            <div>
+              <div class="text-[10px] text-bkk-sub">去程 BR61</div>
+              <div class="text-xs font-bold text-bkk-text">12/24 22:30 ➔ 01:25</div>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2.5 border-l border-bkk-border/80 pl-3">
+            <div class="w-8 h-8 rounded-full bg-bkk-softGreen flex items-center justify-center text-bkk-green">
+              <i class="fa-solid fa-plane-arrival text-xs"></i>
+            </div>
+            <div>
+              <div class="text-[10px] text-bkk-sub">回程 BR68</div>
+              <div class="text-xs font-bold text-bkk-text">12/29 19:55 ➔ 22:00</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-start space-x-3 pt-1">
+          <i class="fa-solid fa-hotel text-bkk-tea text-base mt-0.5"></i>
+          <div class="flex-1">
+            <div class="text-[10px] text-bkk-sub font-medium">住宿地點</div>
+            <div class="text-xs font-semibold text-bkk-text line-clamp-1">Modern & Elegant 6 Beds Townhouse @ BTS ONNUT</div>
+            <a href="https://maps.google.com/?q=BTS+ONNUT+544+38+Sukhumvit+Rd+Khwaeng+Phra+Khanong+Phra+Khanong+Bangkok+10260" target="_blank" class="inline-flex items-center text-xs text-bkk-green font-bold mt-1 hover:underline">
+              <i class="fa-solid fa-location-dot mr-1"></i>開啟 Google 地圖
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex space-x-2 overflow-x-auto hide-scrollbar py-1">
+        <button onclick="filterDay('all')" class="day-btn active bg-bkk-tea text-white text-xs px-3.5 py-2 rounded-xl whitespace-nowrap font-medium transition shadow-xs">全部天數</button>
+        <button onclick="filterDay('d1')" class="day-btn bg-bkk-card text-bkk-text border border-bkk-border text-xs px-3.5 py-2 rounded-xl whitespace-nowrap font-medium transition">D1 (12/24)</button>
+        <button onclick="filterDay('d2')" class="day-btn bg-bkk-card text-bkk-text border border-bkk-border text-xs px-3.5 py-2 rounded-xl whitespace-nowrap font-medium transition">D2 (12/25)</button>
+        <button onclick="filterDay('d3')" class="day-btn bg-bkk-card text-bkk-text border border-bkk-border text-xs px-3.5 py-2 rounded-xl whitespace-nowrap font-medium transition">D3 (12/26)</button>
+        <button onclick="filterDay('d4')" class="day-btn bg-bkk-card text-bkk-text border border-bkk-border text-xs px-3.5 py-2 rounded-xl whitespace-nowrap font-medium transition">D4 (12/27)</button>
+        <button onclick="filterDay('d5')" class="day-btn bg-bkk-card text-bkk-text border border-bkk-border text-xs px-3.5 py-2 rounded-xl whitespace-nowrap font-medium transition">D5 (12/28)</button>
+        <button onclick="filterDay('d6')" class="day-btn bg-bkk-card text-bkk-text border border-bkk-border text-xs px-3.5 py-2 rounded-xl whitespace-nowrap font-medium transition">D6 (12/29)</button>
+      </div>
+
+      <div class="space-y-4" id="timeline-container">
+        
+        <div class="day-card d1 bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm">
+          <div class="flex items-center justify-between border-b border-bkk-border pb-2.5 mb-3.5">
+            <span class="serif-title font-bold text-bkk-tea text-base">Day 1 ‧ 12/24 (四)</span>
+            <span class="text-[10px] bg-bkk-softGreen text-bkk-green font-semibold px-2.5 py-0.5 rounded-full">啟程抵達</span>
+          </div>
+          <div class="space-y-3.5">
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">20:30</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">抵達桃園機場報到</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">01:25</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">抵達曼谷機場 (BKK)</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-extrabold text-bkk-tea pt-0.5 shrink-0">03:30</div>
+              <div class="flex-1">
+                <div class="text-[10px] font-bold text-bkk-tea mb-0.5">【重要集合】</div>
+                <div class="text-xs font-bold text-bkk-text">Check-in 民宿休息</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card d2 bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm">
+          <div class="flex items-center justify-between border-b border-bkk-border pb-2.5 mb-3.5">
+            <span class="serif-title font-bold text-bkk-tea text-base">Day 2 ‧ 12/25 (五)</span>
+            <span class="text-[10px] bg-bkk-softGreen text-bkk-green font-semibold px-2.5 py-0.5 rounded-full">嵩越路 & 鄭王廟</span>
+          </div>
+          <div class="space-y-3.5">
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-extrabold text-bkk-tea pt-0.5 shrink-0">09:30</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-[10px] font-bold text-bkk-tea mb-0.5">【集合出門】</div>
+                <div class="text-xs font-bold text-bkk-text">出門準備</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">10:00</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">SuperRich Exchange @ Silom Plaza 換錢</div>
+                <a href="https://maps.google.com/?q=SuperRich+Silom+Plaza" target="_blank" class="text-xs text-bkk-green font-semibold underline inline-block mt-1"><i class="fa-solid fa-map-pin mr-1"></i>Google Maps 地圖</a>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3 bg-bkk-bg p-3 rounded-xl border border-bkk-border">
+              <div class="w-14 text-xs font-extrabold text-bkk-green pt-0.5 shrink-0">10:30</div>
+              <div class="flex-1">
+                <span class="text-[10px] bg-bkk-green/10 text-bkk-green px-2 py-0.5 rounded-full font-bold">☕ 早餐 / 咖啡</span>
+                <div class="text-xs font-bold text-bkk-text mt-1">SCR - Song Wat Coffee Roasters</div>
+                <a href="https://maps.google.com/?q=Song+Wat+Coffee+Roasters" target="_blank" class="text-xs text-bkk-green font-bold underline inline-block mt-1"><i class="fa-solid fa-utensils mr-1"></i>Google Maps 導航與食記</a>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">11:30</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">逛嵩越路 (Song Wat Road)</div>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 bg-bkk-bg p-3 rounded-xl border border-bkk-border">
+              <div class="w-14 text-xs font-extrabold text-bkk-green pt-0.5 shrink-0">13:00</div>
+              <div class="flex-1">
+                <span class="text-[10px] bg-bkk-green/10 text-bkk-green px-2 py-0.5 rounded-full font-bold">🍽️ 午餐時間</span>
+                <div class="text-xs font-bold text-bkk-text mt-1">Ega Songwat (或沿路隨意吃)</div>
+                <a href="https://maps.google.com/?q=Ega+Songwat" target="_blank" class="text-xs text-bkk-green font-bold underline inline-block mt-1"><i class="fa-solid fa-utensils mr-1"></i>Google Maps 導航與食記</a>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">14:00</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text mb-1.5">繼續逛嵩越路</div>
+                <div class="bg-white p-2.5 rounded-xl border border-bkk-border mt-1">
+                  <span class="text-[10px] bg-bkk-tea/10 text-bkk-tea px-2 py-0.5 rounded-full font-bold">🥭 芒果糯米飯甜點</span>
+                  <div class="text-xs font-bold text-bkk-text mt-1">Wanjai Cafe House @SongWat</div>
+                  <a href="https://maps.google.com/?q=Wanjai+Cafe+House+SongWat" target="_blank" class="text-xs text-bkk-green font-bold underline inline-block mt-1"><i class="fa-solid fa-utensils mr-1"></i>Google Maps 導航</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">16:00</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">搭船前往鄭王廟參觀</div>
+                <div class="text-[10px] text-bkk-sub mt-0.5">17:30 搭船返回</div>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 bg-bkk-bg p-3 rounded-xl border border-bkk-border">
+              <div class="w-14 text-xs font-extrabold text-bkk-tea pt-0.5 shrink-0">18:00</div>
+              <div class="flex-1">
+                <span class="text-[10px] bg-bkk-tea/10 text-bkk-tea px-2 py-0.5 rounded-full font-bold">🌅 夕陽河畔晚餐</span>
+                <div class="text-xs font-bold text-bkk-text mt-1">Horsamut (鄭王廟景觀餐廳)</div>
+                <a href="https://maps.google.com/?q=Horsamut+Bangkok" target="_blank" class="text-xs text-bkk-green font-bold underline inline-block mt-1"><i class="fa-solid fa-utensils mr-1"></i>Google Maps 導航與食記</a>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">20:00</div>
+              <div class="flex-1">
+                <div class="text-xs font-bold text-bkk-text">考山路夜市、小酌喝酒、按摩 ➔ 回家</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card d3 bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm">
+          <div class="flex items-center justify-between border-b border-bkk-border pb-2.5 mb-3.5">
+            <span class="serif-title font-bold text-bkk-tea text-base">Day 3 ‧ 12/26 (六)</span>
+            <span class="text-[10px] bg-bkk-softGreen text-bkk-green font-semibold px-2.5 py-0.5 rounded-full">市區大採買 & 夜市</span>
+          </div>
+          <div class="space-y-3.5">
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">10:00</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">參拜四面佛</div>
+                <a href="https://maps.google.com/?q=Erawan+Shrine+Bangkok" target="_blank" class="text-xs text-bkk-green font-semibold underline inline-block mt-1"><i class="fa-solid fa-map-pin mr-1"></i>Google Maps 地圖</a>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">10:30</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">Central World & 暹羅廣場 (Siam Square) 逛街</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-extrabold text-bkk-tea pt-0.5 shrink-0">16:00</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-tea">Big C Supercenter 大採買</div>
+                <div class="text-[10px] text-bkk-sub mt-0.5">17:30 回家放戰利品</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">19:00</div>
+              <div class="flex-1">
+                <div class="text-xs font-bold text-bkk-text">席娜卡琳火車鐵道夜市 (Srinakarin Night Market)</div>
+                <div class="text-[10px] text-bkk-sub mt-0.5">逛市集、吃晚餐、按摩 ➔ 回家</div>
+                <a href="https://maps.google.com/?q=Srinakarin+Train+Night+Market" target="_blank" class="text-xs text-bkk-green font-semibold underline inline-block mt-1"><i class="fa-solid fa-map-pin mr-1"></i>Google Maps 地圖</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card d4 bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm">
+          <div class="flex items-center justify-between border-b border-bkk-border pb-2.5 mb-3.5">
+            <span class="serif-title font-bold text-bkk-tea text-base">Day 4 ‧ 12/27 (日)</span>
+            <span class="text-[10px] bg-bkk-softGreen text-bkk-green font-semibold px-2.5 py-0.5 rounded-full">百貨巡禮 & 美食</span>
+          </div>
+          <div class="space-y-3.5">
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-extrabold text-bkk-tea pt-0.5 shrink-0">09:30</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-[10px] font-bold text-bkk-tea mb-0.5">【集合出門】</div>
+                <div class="text-xs font-bold text-bkk-text">出門準備</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">10:00</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">EmSphere 百貨逛街 & 吃早餐</div>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 bg-bkk-bg p-3 rounded-xl border border-bkk-border">
+              <div class="w-14 text-xs font-extrabold text-bkk-green pt-0.5 shrink-0">13:30</div>
+              <div class="flex-1">
+                <span class="text-[10px] bg-bkk-green/10 text-bkk-green px-2 py-0.5 rounded-full font-bold">⭐ 必比登推薦午餐</span>
+                <div class="text-xs font-bold text-bkk-text mt-1">Sri Trat Restaurant and Bar</div>
+                <a href="https://maps.google.com/?q=Sri+Trat+Restaurant+and+Bar" target="_blank" class="text-xs text-bkk-green font-bold underline inline-block mt-1"><i class="fa-solid fa-utensils mr-1"></i>Google Maps 導航與食記</a>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">15:00</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">Terminal 21 百貨逛街</div>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 bg-bkk-bg p-3 rounded-xl border border-bkk-border">
+              <div class="w-14 text-xs font-extrabold text-bkk-green pt-0.5 shrink-0">18:00</div>
+              <div class="flex-1">
+                <span class="text-[10px] bg-bkk-green/10 text-bkk-green px-2 py-0.5 rounded-full font-bold">🍛 美饌晚餐</span>
+                <div class="text-xs font-bold text-bkk-text mt-1">Lon Lon Local Diner</div>
+                <a href="https://maps.google.com/?q=Lon+Lon+Local+Diner" target="_blank" class="text-xs text-bkk-green font-bold underline inline-block mt-1"><i class="fa-solid fa-utensils mr-1"></i>Google Maps 導航與食記</a>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 bg-bkk-bg p-3 rounded-xl border border-bkk-border">
+              <div class="w-14 text-xs font-extrabold text-bkk-tea pt-0.5 shrink-0">20:00</div>
+              <div class="flex-1">
+                <span class="text-[10px] bg-bkk-tea/10 text-bkk-tea px-2 py-0.5 rounded-full font-bold">🍸 高空酒吧調酒</span>
+                <div class="text-xs font-bold text-bkk-text mt-1">Le Du Kaan Rooftop Bar</div>
+                <a href="https://maps.google.com/?q=Le+Du+Kaan" target="_blank" class="text-xs text-bkk-green font-bold underline inline-block mt-1"><i class="fa-solid fa-wine-glass mr-1"></i>Google Maps 導航與地點</a>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">深夜</div>
+              <div class="flex-1">
+                <div class="text-xs font-bold text-bkk-text">返家休息</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card d5 bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm">
+          <div class="flex items-center justify-between border-b border-bkk-border pb-2.5 mb-3.5">
+            <span class="serif-title font-bold text-bkk-tea text-base">Day 5 ‧ 12/28 (一)</span>
+            <span class="text-[10px] bg-bkk-softGreen text-bkk-green font-semibold px-2.5 py-0.5 rounded-full">芭達雅近郊</span>
+          </div>
+          <div class="space-y-3.5">
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-extrabold text-bkk-tea pt-0.5 shrink-0">全天</div>
+              <div class="flex-1">
+                <div class="text-xs font-bold text-bkk-tea mb-1">PATTAYA 芭達雅一日遊</div>
+                <div class="text-[11px] text-bkk-sub leading-relaxed">全天包車前往 Pattaya 景點走訪與晚間經典成人秀體驗。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card d6 bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm">
+          <div class="flex items-center justify-between border-b border-bkk-border pb-2.5 mb-3.5">
+            <span class="serif-title font-bold text-bkk-tea text-base">Day 6 ‧ 12/29 (二)</span>
+            <span class="text-[10px] bg-bkk-softGreen text-bkk-green font-semibold px-2.5 py-0.5 rounded-full">最後衝刺 & 返台</span>
+          </div>
+          <div class="space-y-3.5">
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">10:00</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-xs font-bold text-bkk-text">ICONSIAM 暹羅天地購物巡禮</div>
+                <a href="https://maps.google.com/?q=ICONSIAM" target="_blank" class="text-xs text-bkk-green font-semibold underline inline-block mt-1"><i class="fa-solid fa-map-pin mr-1"></i>Google Maps 地圖</a>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-extrabold text-bkk-tea pt-0.5 shrink-0">16:30</div>
+              <div class="flex-1 pb-2.5 border-b border-bkk-border/50">
+                <div class="text-[10px] font-bold text-bkk-tea mb-0.5">【重要時間】</div>
+                <div class="text-xs font-bold text-bkk-text">回民宿拿行李，前往機場</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-14 text-xs font-semibold text-bkk-sub pt-0.5 shrink-0">17:55</div>
+              <div class="flex-1">
+                <div class="text-xs font-bold text-bkk-text">抵達曼谷機場 (BR68 19:55起飛返台)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="sec-guide" class="tab-content hidden space-y-5">
+      <div class="border-b border-bkk-border pb-2">
+        <h2 class="serif-title text-base font-bold text-bkk-text">景點深度雜誌導覽</h2>
+        <p class="text-[11px] text-bkk-sub">探索曼谷傳統與現代交融的故事</p>
+      </div>
+
+      <article class="bg-bkk-card rounded-2xl overflow-hidden border border-bkk-border shadow-sm">
+        <div class="p-4 space-y-2.5">
+          <span class="text-[10px] bg-bkk-softGreen text-bkk-green px-2 py-0.5 rounded font-bold uppercase">Old Town Charm</span>
+          <h3 class="serif-title text-base font-bold text-bkk-text">嵩越路 Song Wat Road</h3>
+          <p class="text-xs text-bkk-sub leading-relaxed">
+            位於昭披耶河畔的嵩越路，曾是百年前曼谷最繁華的貿易碼頭商圈。近年由在地設計師與青年創業家注入新生命，老舊的中式騎樓藥行與雜貨店搖身一變成為獨立精品咖啡館、藝廊與精緻餐廳。
+          </p>
+          <div class="bg-bkk-bg p-3 rounded-xl border border-bkk-border text-xs space-y-1">
+            <div class="font-bold text-bkk-tea"><i class="fa-solid fa-lightbulb mr-1"></i>冷知識小筆記</div>
+            <p class="text-[11px] text-bkk-sub">這裡的建築保留了拉瑪五世時期的建築元素，隨處可見雕花木門與舊式鐵窗花，非常適合徒步漫遊攝影！</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="bg-bkk-card rounded-2xl overflow-hidden border border-bkk-border shadow-sm">
+        <div class="p-4 space-y-2.5">
+          <span class="text-[10px] bg-bkk-tea/10 text-bkk-tea px-2 py-0.5 rounded font-bold uppercase">Historical Landmark</span>
+          <h3 class="serif-title text-base font-bold text-bkk-text">鄭王廟 Wat Arun</h3>
+          <p class="text-xs text-bkk-sub leading-relaxed">
+            又稱黎明寺，是泰國最具代表性的地標之一。主塔高達 82 公尺，外牆貼滿了古代中國商船作為鎮艙物帶來的彩色陶瓷與青花瓷碎片，在光線折射下呈現出極其絢麗的花紋。
+          </p>
+          <div class="w-full h-40 rounded-xl overflow-hidden border border-bkk-border">
+            <iframe class="w-full h-full border-0" src="https://www.openstreetmap.org/export/embed.html?bbox=100.4862%2C13.7420%2C100.4920%2C13.7455&layer=mapnik" loading="lazy"></iframe>
+          </div>
+        </div>
+      </article>
+
+      <article class="bg-bkk-card rounded-2xl overflow-hidden border border-bkk-border shadow-sm">
+        <div class="p-4 space-y-2.5">
+          <span class="text-[10px] bg-bkk-gold/10 text-bkk-gold px-2 py-0.5 rounded font-bold uppercase">Retro Night Market</span>
+          <h3 class="serif-title text-base font-bold text-bkk-text">席娜卡琳火車鐵道夜市</h3>
+          <p class="text-xs text-bkk-sub leading-relaxed">
+            不同於觀光客蜂擁的夜市，席娜卡琳以龐大的復古古董區著稱。從古董車、美式復古玩具、古典傢俱到平價泰國在地美食應有盡有，佔地極廣，宛如大型露天博物館。
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section id="sec-wallet" class="tab-content hidden space-y-5">
+      
+      <div class="bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm space-y-3">
+        <div class="flex justify-between items-center border-b border-bkk-border pb-2">
+          <h3 class="serif-title font-bold text-xs text-bkk-text">即時匯率計算機</h3>
+          <div class="text-xs text-bkk-sub flex items-center space-x-1">
+            <span>1 THB ≈</span>
+            <input id="rate-input" type="number" step="0.01" value="0.92" class="w-12 text-center bg-bkk-bg rounded border border-bkk-border text-xs font-bold py-0.5" onchange="calculateExchange()">
+            <span>TWD</span>
+          </div>
+        </div>
+
+        <div class="bg-bkk-bg p-3 rounded-xl border border-bkk-border text-right">
+          <div id="calc-expr" class="text-xs text-bkk-sub h-4 overflow-hidden">0</div>
+          <div id="calc-result" class="text-xl font-extrabold text-bkk-text mt-1">0 <span class="text-xs font-normal text-bkk-sub">THB</span></div>
+          <div id="calc-twd" class="text-xs font-bold text-bkk-green mt-0.5">≈ NT$ 0</div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-1.5 text-xs font-semibold">
+          <button onclick="calcInput('C')" class="p-2.5 bg-red-50 text-red-600 rounded-lg active:bg-red-100 font-bold">C</button>
+          <button onclick="calcInput('/')" class="p-2.5 bg-bkk-bg text-bkk-tea rounded-lg active:bg-bkk-border">÷</button>
+          <button onclick="calcInput('*')" class="p-2.5 bg-bkk-bg text-bkk-tea rounded-lg active:bg-bkk-border">×</button>
+          <button onclick="calcInput('-')" class="p-2.5 bg-bkk-bg text-bkk-tea rounded-lg active:bg-bkk-border">-</button>
+
+          <button onclick="calcInput('7')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">7</button>
+          <button onclick="calcInput('8')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">8</button>
+          <button onclick="calcInput('9')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">9</button>
+          <button onclick="calcInput('+')" class="p-2.5 bg-bkk-bg text-bkk-tea rounded-lg active:bg-bkk-border">+</button>
+
+          <button onclick="calcInput('4')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">4</button>
+          <button onclick="calcInput('5')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">5</button>
+          <button onclick="calcInput('6')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">6</button>
+          <button onclick="calcEqual()" class="p-2.5 bg-bkk-tea text-white rounded-lg row-span-2 flex items-center justify-center font-bold text-base active:opacity-90">=</button>
+
+          <button onclick="calcInput('1')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">1</button>
+          <button onclick="calcInput('2')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">2</button>
+          <button onclick="calcInput('3')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">3</button>
+
+          <button onclick="calcInput('0')" class="p-2.5 bg-bkk-bg rounded-lg col-span-2 active:bg-bkk-border">0</button>
+          <button onclick="calcInput('.')" class="p-2.5 bg-bkk-bg rounded-lg active:bg-bkk-border">.</button>
+        </div>
+      </div>
+
+      <div class="bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm space-y-3">
+        <h3 class="serif-title font-bold text-xs text-bkk-text">新增消費記帳</h3>
+        <div class="grid grid-cols-2 gap-2">
+          <input id="expense-name" type="text" placeholder="品項名稱 (如: 泰奶)" class="bg-bkk-bg border border-bkk-border rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-bkk-tea">
+          <input id="expense-amount" type="number" placeholder="泰銖金額 (THB)" class="bg-bkk-bg border border-bkk-border rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-bkk-tea">
+        </div>
+        
+        <div class="flex items-center space-x-2">
+          <label class="flex-1 border border-dashed border-bkk-border rounded-xl py-2 px-3 text-center cursor-pointer bg-bkk-bg text-xs text-bkk-sub hover:bg-bkk-border/30">
+            <i class="fa-solid fa-camera mr-1 text-bkk-tea"></i><span id="photo-status">上傳收據/照片</span>
+            <input type="file" id="expense-photo" accept="image/*" capture="environment" class="hidden" onchange="handlePhotoUpload(event)">
+          </label>
+          <button onclick="addExpense()" class="bg-bkk-green text-white px-5 py-2 rounded-xl text-xs font-semibold shadow-xs active:opacity-90">儲存</button>
+        </div>
+      </div>
+
+      <div class="space-y-2.5">
+        <div class="flex justify-between items-center px-1">
+          <h3 class="serif-title font-bold text-xs text-bkk-text">消費歷史紀錄</h3>
+          <span id="total-expense" class="text-xs font-bold text-bkk-tea">總計: 0 THB</span>
+        </div>
+        
+        <div id="expense-list" class="space-y-2">
+          </div>
+      </div>
+
+    </section>
+
+    <section id="sec-lists" class="tab-content hidden space-y-5">
+      
+      <div class="bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm space-y-3">
+        <div class="flex justify-between items-center border-b border-bkk-border pb-2">
+          <h3 class="serif-title font-bold text-xs text-bkk-text">行前必備清單 CheckList</h3>
+          <span id="checklist-progress" class="text-[10px] bg-bkk-softGreen text-bkk-green font-bold px-2 py-0.5 rounded-full">0/0 完成</span>
+        </div>
+        <div id="checklist-container" class="grid grid-cols-2 gap-2 text-xs">
+          </div>
+      </div>
+
+      <div class="bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm space-y-3">
+        <h3 class="serif-title font-bold text-xs text-bkk-text">個人靈感與備忘錄</h3>
+        <p class="text-[10px] text-bkk-sub">自由輸入文字，輸入網址（含 http/https）將自動轉換為超連結按鈕。</p>
+        
+        <div class="flex space-x-2">
+          <input id="memo-input" type="text" placeholder="新增備忘或網址..." class="flex-1 bg-bkk-bg border border-bkk-border rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-bkk-tea">
+          <button onclick="addMemo()" class="bg-bkk-tea text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-xs">新增</button>
+        </div>
+
+        <div id="memo-list" class="space-y-2 pt-1">
+          </div>
+      </div>
+
+    </section>
+
+    <section id="sec-info" class="tab-content hidden space-y-5">
+      
+      <div class="bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <i class="fa-solid fa-sun text-2xl text-bkk-gold"></i>
+          <div>
+            <div class="text-xs font-bold text-bkk-text">曼谷即時天氣預報</div>
+            <div class="text-[10px] text-bkk-sub">AccuWeather 氣象預測</div>
+          </div>
+        </div>
+        <a href="https://www.accuweather.com/zh/th/bangkok/318251/weather-forecast/318251" target="_blank" class="bg-bkk-bg border border-bkk-border text-bkk-text text-xs px-3 py-1.5 rounded-xl font-bold">開啟連結</a>
+      </div>
+
+      <div class="bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm space-y-3">
+        <h3 class="serif-title font-bold text-xs text-red-700"><i class="fa-solid fa-phone-volume mr-1.5"></i>緊急聯絡電話</h3>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <a href="tel:1155" class="bg-bkk-bg p-2.5 rounded-xl border border-bkk-border block">
+            <div class="text-bkk-sub text-[10px]">觀光警察 (英/中)</div>
+            <div class="font-bold text-bkk-text text-xs">1155</div>
+          </a>
+          <a href="tel:1669" class="bg-bkk-bg p-2.5 rounded-xl border border-bkk-border block">
+            <div class="text-bkk-sub text-[10px]">救護車 / 急救中心</div>
+            <div class="font-bold text-bkk-text text-xs">1669</div>
+          </a>
+          <a href="tel:191" class="bg-bkk-bg p-2.5 rounded-xl border border-bkk-border block">
+            <div class="text-bkk-sub text-[10px]">報案專線 (警察)</div>
+            <div class="font-bold text-bkk-text text-xs">191</div>
+          </a>
+          <a href="tel:+6626960000" class="bg-bkk-bg p-2.5 rounded-xl border border-bkk-border block">
+            <div class="text-bkk-sub text-[10px]">駐泰國台北聯絡處</div>
+            <div class="font-bold text-bkk-text text-[11px] mt-0.5">02-696-0000</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-bkk-card rounded-2xl p-4 border border-bkk-border shadow-sm space-y-3">
+        <h3 class="serif-title font-bold text-xs text-bkk-text"><i class="fa-solid fa-triangle-exclamation text-bkk-tea mr-1.5"></i>泰國旅遊禁忌與注意事項</h3>
+        <ul class="text-xs text-bkk-sub space-y-2 list-disc pl-4 leading-relaxed">
+          <li><strong class="text-bkk-text">皇室尊嚴：</strong>切勿批評或議論泰國皇室成員，此行為在泰國屬於嚴重違法。</li>
+          <li><strong class="text-bkk-text">寺廟穿著：</strong>進入寺廟不可穿著無袖上衣、短褲或破洞褲，需脫鞋入場。</li>
+          <li><strong class="text-bkk-text">電子菸禁令：</strong>泰國嚴格禁止攜帶、使用與販售電子菸，違者面臨高額罰款甚至刑責。</li>
+          <li><strong class="text-bkk-text">大麻規範：</strong>雖然合法化，但嚴禁在公共場所吸食，且絕對不可攜帶出境。</li>
+          <li><strong class="text-bkk-text">小費習慣：</strong>按摩或飯店行李服務通常給予 20-50 泰銖小費，切記不可使用硬幣做為小費。</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <nav class="fixed bottom-0 left-0 right-0 bg-bkk-card border-t border-bkk-border z-40 px-3 py-2 shadow-lg">
+    <div class="max-w-md mx-auto flex justify-around items-center">
+      <button onclick="switchTab('plan')" class="nav-btn active flex flex-col items-center text-bkk-tea transition">
+        <i class="fa-solid fa-calendar-days text-base"></i>
+        <span class="text-[10px] mt-0.5 font-bold">行程</span>
+      </button>
+      <button onclick="switchTab('guide')" class="nav-btn flex flex-col items-center text-bkk-sub hover:text-bkk-tea transition">
+        <i class="fa-solid fa-book-open text-base"></i>
+        <span class="text-[10px] mt-0.5 font-bold">導覽</span>
+      </button>
+      <button onclick="switchTab('wallet')" class="nav-btn flex flex-col items-center text-bkk-sub hover:text-bkk-tea transition">
+        <i class="fa-solid fa-wallet text-base"></i>
+        <span class="text-[10px] mt-0.5 font-bold">記帳</span>
+      </button>
+      <button onclick="switchTab('lists')" class="nav-btn flex flex-col items-center text-bkk-sub hover:text-bkk-tea transition">
+        <i class="fa-solid fa-list-check text-base"></i>
+        <span class="text-[10px] mt-0.5 font-bold">清單</span>
+      </button>
+      <button onclick="switchTab('info')" class="nav-btn flex flex-col items-center text-bkk-sub hover:text-bkk-tea transition">
+        <i class="fa-solid fa-circle-info text-base"></i>
+        <span class="text-[10px] mt-0.5 font-bold">資訊</span>
+      </button>
+    </div>
+  </nav>
+
+  <script>
+    // --- Initial Preset Data ---
+    const presetChecklist = [
+      '護照', '信用卡', '外幣、台幣', '網卡 (esim)', '換洗衣物、鞋子、拖鞋',
+      '首飾', '藥品（頭痛、胃藥、血壓藥...）', '保養品、化妝品',
+      '相機、記憶卡、電池', '墨鏡', '手機吊繩', '行動電源（隨身）',
+      '充電器', '雨傘'
+    ];
+
+    let currentPhotoBase64 = "";
+
+    // --- Tab Switch Function ---
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`sec-${tabId}`).classList.remove('hidden');
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-bkk-tea', 'active');
+        btn.classList.add('text-bkk-sub');
+      });
+      event.currentTarget.classList.remove('text-bkk-sub');
+      event.currentTarget.classList.add('text-bkk-tea', 'active');
+      window.scrollTo(0, 0);
+    }
+
+    // --- Timeline Day Filter ---
+    function filterDay(dayClass) {
+      document.querySelectorAll('.day-btn').forEach(btn => {
+        btn.classList.remove('bg-bkk-tea', 'text-white');
+        btn.classList.add('bg-bkk-card', 'text-bkk-text');
+      });
+      event.currentTarget.classList.remove('bg-bkk-card', 'text-bkk-text');
+      event.currentTarget.classList.add('bg-bkk-tea', 'text-white');
+
+      const cards = document.querySelectorAll('.day-card');
+      if (dayClass === 'all') {
+        cards.forEach(c => c.classList.remove('hidden'));
+      } else {
+        cards.forEach(c => {
+          if (c.classList.contains(dayClass)) {
+            c.classList.remove('hidden');
+          } else {
+            c.classList.add('hidden');
+          }
+        });
+      }
+    }
+
+    // --- Calculator & Exchange Logic ---
+    let calcExpr = "";
+
+    function calcInput(char) {
+      if (char === 'C') {
+        calcExpr = "";
+      } else {
+        calcExpr += char;
+      }
+      document.getElementById('calc-expr').innerText = calcExpr || "0";
+    }
+
+    function calcEqual() {
+      try {
+        if (!calcExpr) return;
+        let res = eval(calcExpr);
+        document.getElementById('calc-result').innerHTML = `${res.toFixed(1)} <span class="text-xs font-normal text-bkk-sub">THB</span>`;
+        calculateExchange(res);
+        calcExpr = res.toString();
+      } catch (e) {
+        document.getElementById('calc-result').innerText = "錯誤";
+      }
+    }
+
+    function calculateExchange(val) {
+      const rate = parseFloat(document.getElementById('rate-input').value) || 0.92;
+      let thbAmount = val;
+      if (thbAmount === undefined) {
+        const text = document.getElementById('calc-result').innerText;
+        thbAmount = parseFloat(text) || 0;
+      }
+      const twd = (thbAmount * rate).toFixed(0);
+      document.getElementById('calc-twd').innerText = `≈ NT$ ${twd}`;
+    }
+
+    // --- Wallet / Expenses (LocalStorage) ---
+    function handlePhotoUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          const max_size = 300;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > height) {
+            if (width > max_size) {
+              height *= max_size / width;
+              width = max_size;
+            }
+          } else {
+            if (height > max_size) {
+              width *= max_size / height;
+              height = max_size;
+            }
+          }
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          currentPhotoBase64 = canvas.toDataURL('image/jpeg', 0.6);
+          document.getElementById('photo-status').innerText = "已載入照片";
+        }
+        img.src = event.target.result;
+      }
+      reader.readAsDataURL(file);
+    }
+
+    function addExpense() {
+      const name = document.getElementById('expense-name').value.trim();
+      const amount = parseFloat(document.getElementById('expense-amount').value);
+
+      if (!name || isNaN(amount)) {
+        alert('請輸入品項名稱與正確金額');
+        return;
+      }
+
+      const expenses = JSON.parse(localStorage.getItem('bk_expenses') || '[]');
+      const newExpense = {
+        id: Date.now(),
+        name: name,
+        amount: amount,
+        photo: currentPhotoBase64,
+        date: new Date().toLocaleDateString('zh-TW', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+      };
+
+      expenses.unshift(newExpense);
+      localStorage.setItem('bk_expenses', JSON.stringify(expenses));
+
+      document.getElementById('expense-name').value = '';
+      document.getElementById('expense-amount').value = '';
+      document.getElementById('expense-photo').value = '';
+      document.getElementById('photo-status').innerText = "上傳收據/照片";
+      currentPhotoBase64 = "";
+
+      renderExpenses();
+    }
+
+    function deleteExpense(id) {
+      let expenses = JSON.parse(localStorage.getItem('bk_expenses') || '[]');
+      expenses = expenses.filter(item => item.id !== id);
+      localStorage.setItem('bk_expenses', JSON.stringify(expenses));
+      renderExpenses();
+    }
+
+    function renderExpenses() {
+      const expenses = JSON.parse(localStorage.getItem('bk_expenses') || '[]');
+      const container = document.getElementById('expense-list');
+      const rate = parseFloat(document.getElementById('rate-input').value) || 0.92;
+      container.innerHTML = '';
+
+      let total = 0;
+
+      if (expenses.length === 0) {
+        container.innerHTML = `<div class="text-center text-xs text-bkk-sub py-6">目前尚無記帳資料</div>`;
+      } else {
+        expenses.forEach(item => {
+          total += item.amount;
+          const twd = (item.amount * rate).toFixed(0);
+          
+          const el = document.createElement('div');
+          el.className = 'bg-bkk-card p-3 rounded-xl border border-bkk-border flex items-center justify-between shadow-xs';
+          el.innerHTML = `
+            <div class="flex items-center space-x-3">
+              ${item.photo ? `<img src="${item.photo}" class="w-10 h-10 object-cover rounded-lg border border-bkk-border">` : `<div class="w-10 h-10 rounded-lg bg-bkk-bg flex items-center justify-center text-bkk-sub"><i class="fa-solid fa-receipt"></i></div>`}
+              <div>
+                <div class="text-xs font-bold text-bkk-text">${item.name}</div>
+                <div class="text-[10px] text-bkk-sub">${item.date}</div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="text-right">
+                <div class="text-xs font-bold text-bkk-text">${item.amount} THB</div>
+                <div class="text-[10px] text-bkk-green">≈ NT$ ${twd}</div>
+              </div>
+              <button onclick="deleteExpense(${item.id})" class="text-bkk-sub hover:text-red-500 text-xs p-1"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          `;
+          container.appendChild(el);
+        });
+      }
+
+      document.getElementById('total-expense').innerText = `總計: ${total} THB (≈ NT$ ${(total * rate).toFixed(0)})`;
+    }
+
+    // --- CheckList Functions ---
+    function initChecklist() {
+      let saved = JSON.parse(localStorage.getItem('bk_checklist'));
+      if (!saved) {
+        saved = presetChecklist.map((item, idx) => ({ id: idx, text: item, checked: false }));
+        localStorage.setItem('bk_checklist', JSON.stringify(saved));
+      }
+      renderChecklist();
+    }
+
+    function toggleCheck(id) {
+      let saved = JSON.parse(localStorage.getItem('bk_checklist'));
+      const target = saved.find(i => i.id === id);
+      if (target) {
+        target.checked = !target.checked;
+        localStorage.setItem('bk_checklist', JSON.stringify(saved));
+        renderChecklist();
+      }
+    }
+
+    function renderChecklist() {
+      const saved = JSON.parse(localStorage.getItem('bk_checklist') || '[]');
+      const container = document.getElementById('checklist-container');
+      container.innerHTML = '';
+
+      let checkedCount = 0;
+      saved.forEach(item => {
+        if (item.checked) checkedCount++;
+        const el = document.createElement('label');
+        el.className = `flex items-center space-x-2 p-2 rounded-xl border transition ${item.checked ? 'bg-bkk-bg border-bkk-border text-bkk-sub line-through' : 'bg-bkk-card border-bkk-border text-bkk-text'}`;
+        el.innerHTML = `
+          <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="toggleCheck(${item.id})" class="accent-bkk-tea rounded">
+          <span class="truncate">${item.text}</span>
+        `;
+        container.appendChild(el);
+      });
+
+      document.getElementById('checklist-progress').innerText = `${checkedCount}/${saved.length} 完成`;
+    }
+
+    // --- Memo Functions ---
+    function addMemo() {
+      const input = document.getElementById('memo-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const memos = JSON.parse(localStorage.getItem('bk_memos') || '[]');
+      memos.unshift({ id: Date.now(), text: text });
+      localStorage.setItem('bk_memos', JSON.stringify(memos));
+
+      input.value = '';
+      renderMemos();
+    }
+
+    function deleteMemo(id) {
+      let memos = JSON.parse(localStorage.getItem('bk_memos') || '[]');
+      memos = memos.filter(m => m.id !== id);
+      localStorage.setItem('bk_memos', JSON.stringify(memos));
+      renderMemos();
+    }
+
+    function renderMemos() {
+      const memos = JSON.parse(localStorage.getItem('bk_memos') || '[]');
+      const container = document.getElementById('memo-list');
+      container.innerHTML = '';
+
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+      if (memos.length === 0) {
+        container.innerHTML = `<div class="text-center text-xs text-bkk-sub py-3">尚無個人備忘</div>`;
+      } else {
+        memos.forEach(m => {
+          const isUrl = urlRegex.test(m.text);
+          const el = document.createElement('div');
+          el.className = 'bg-bkk-bg p-2.5 rounded-xl border border-bkk-border flex justify-between items-center text-xs';
+          
+          if (isUrl) {
+            el.innerHTML = `
+              <a href="${m.text}" target="_blank" class="text-bkk-green font-bold underline truncate mr-2 flex items-center">
+                <i class="fa-solid fa-link mr-1.5"></i>${m.text}
+              </a>
+              <button onclick="deleteMemo(${m.id})" class="text-bkk-sub hover:text-red-500"><i class="fa-solid fa-xmark"></i></button>
+            `;
+          } else {
+            el.innerHTML = `
+              <span class="text-bkk-text break-all mr-2">${m.text}</span>
+              <button onclick="deleteMemo(${m.id})" class="text-bkk-sub hover:text-red-500"><i class="fa-solid fa-xmark"></i></button>
+            `;
+          }
+          container.appendChild(el);
+        });
+      }
+    }
+
+    // Page Load Initializations
+    window.onload = function() {
+      renderExpenses();
+      initChecklist();
+      renderMemos();
+    };
+  </script>
+</body>
+</html>
