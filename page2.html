@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="h-full bg-[#f4f1ea]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>大阪京都萬聖環球求老祖宗保佑我！</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Noto Serif TC & Sawarabi Mincho for Japanese Zen Vibe -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            matcha: {
+              50: '#f4f6f0',
+              100: '#e3e8d9',
+              200: '#c5d2b3',
+              500: '#586b46',
+              600: '#465636',
+              700: '#38452b',
+              800: '#2b3522',
+              900: '#1d2417',
+            },
+            sand: {
+              50: '#faf8f5',
+              100: '#f4f1ea',
+              200: '#e6dfd3',
+              300: '#d5c9b5',
+              800: '#5c5243',
+            },
+            vermilion: '#c84b31', // Zen Red highlight
+            charcoal: '#2b2b2b'
+          },
+          fontFamily: {
+            serif: ['"Noto Serif TC"', '"Sawarabi Mincho"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Noto Serif TC', 'Sawarabi Mincho', serif;
+      color: #2b2b2b;
+      background-color: #f4f1ea;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Wabi-sabi background texture simulation */
+    .zen-bg {
+      background-color: #f4f1ea;
+      background-image: radial-gradient(#e6dfd3 0.75px, transparent 0.75px);
+      background-size: 12px 12px;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f4f1ea;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c5d2b3;
+      border-radius: 2px;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col zen-bg max-w-md mx-auto shadow-2xl relative border-x border-sand-200">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-sand-100/90 backdrop-blur-md border-b border-sand-200 px-4 py-3 flex justify-between items-center">
+    <div>
+      <span class="text-xs font-semibold tracking-widest text-matcha-600 uppercase block">2026 Kansai Trip</span>
+      <h1 class="text-base font-bold text-matcha-900 truncate max-w-[260px]">大阪京都萬聖環球求老祖宗保佑我！</h1>
+    </div>
+    <div class="text-right">
+      <span class="inline-block px-2 py-0.5 text-[10px] bg-matcha-100 text-matcha-800 rounded-full font-medium border border-matcha-200">
+        10/23 - 10/27
+      </span>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main id="app-container" class="flex-1 overflow-y-auto pb-24 px-4 pt-4">
+    
+    <!-- ================= PLAN PAGE ================= -->
+    <section id="page-plan" class="tab-content space-y-6">
+      
+      <!-- Flight & Hotel Cards -->
+      <div class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200/80 space-y-3">
+        <div class="flex items-center space-x-2 text-matcha-700 font-bold border-b border-sand-200 pb-2">
+          <i class="fa-solid fa-plane-departure text-matcha-600"></i>
+          <span class="text-sm">航班資訊 (桃園 T2 ↔ KIX T1)</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="bg-white/60 p-2.5 rounded-xl border border-sand-200">
+            <span class="text-gray-500 block text-[10px]">去程 10/23 (五)</span>
+            <div class="font-bold text-matcha-900 mt-0.5">06:30 ➔ 10:10</div>
+            <div class="text-[10px] text-gray-600 mt-0.5">TPE T2 ➔ KIX T1</div>
+          </div>
+          <div class="bg-white/60 p-2.5 rounded-xl border border-sand-200">
+            <span class="text-gray-500 block text-[10px]">回程 10/27 (二)</span>
+            <div class="font-bold text-matcha-900 mt-0.5">18:10 ➔ 20:25</div>
+            <div class="text-[10px] text-gray-600 mt-0.5">KIX T1 ➔ TPE T2</div>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2 text-matcha-700 font-bold border-b border-sand-200 pb-2 pt-2">
+          <i class="fa-solid fa-hotel text-matcha-600"></i>
+          <span class="text-sm">住宿地點</span>
+        </div>
+        <div class="space-y-1.5 text-xs">
+          <div class="bg-white/60 p-2 rounded-xl border border-sand-200 flex justify-between items-center">
+            <div>
+              <span class="inline-block px-1.5 py-0.5 bg-matcha-100 text-matcha-800 rounded text-[10px] font-medium mr-1">10/23</span>
+              <span class="font-semibold text-gray-800">京站八條口 VIA INN PRIME</span>
+            </div>
+            <a href="https://maps.google.com/?q=VIA+INN+PRIME+KYOTOEKI+HACHIJOGUCHI" target="_blank" class="text-matcha-600 hover:text-matcha-800 p-1">
+              <i class="fa-solid fa-location-dot"></i>
+            </a>
+          </div>
+          <div class="bg-white/60 p-2 rounded-xl border border-sand-200 flex justify-between items-center">
+            <div>
+              <span class="inline-block px-1.5 py-0.5 bg-matcha-100 text-matcha-800 rounded text-[10px] font-medium mr-1">10/24-27</span>
+              <span class="font-semibold text-gray-800">維亞飯店梅田-JR西日本集團</span>
+            </div>
+            <a href="https://maps.google.com/?q=VIA+INN+UMEDA" target="_blank" class="text-matcha-600 hover:text-matcha-800 p-1">
+              <i class="fa-solid fa-location-dot"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day Selector (Tabs) -->
+      <div class="flex space-x-2 overflow-x-auto hide-scrollbar py-1">
+        <button onclick="switchDay(1)" id="day-btn-1" class="day-tab-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-matcha-600 text-white shadow-sm transition-all">
+          10/23 Day 1
+        </button>
+        <button onclick="switchDay(2)" id="day-btn-2" class="day-tab-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-sand-200 text-gray-700 hover:bg-sand-300 transition-all">
+          10/24 Day 2
+        </button>
+        <button onclick="switchDay(3)" id="day-btn-3" class="day-tab-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-sand-200 text-gray-700 hover:bg-sand-300 transition-all">
+          10/25 Day 3
+        </button>
+        <button onclick="switchDay(4)" id="day-btn-4" class="day-tab-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-sand-200 text-gray-700 hover:bg-sand-300 transition-all">
+          10/26 Day 4
+        </button>
+        <button onclick="switchDay(5)" id="day-btn-5" class="day-tab-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-sand-200 text-gray-700 hover:bg-sand-300 transition-all">
+          10/27 Day 5
+        </button>
+      </div>
+
+      <!-- Timeline Container -->
+      <div id="timeline-container" class="relative pl-2 space-y-4">
+        <!-- Content will be injected dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- ================= GUIDE PAGE ================= -->
+    <section id="page-guide" class="tab-content hidden space-y-6">
+      <div class="text-center py-2">
+        <h2 class="text-lg font-bold text-matcha-900">景點與特輯深度導覽</h2>
+        <p class="text-xs text-gray-500">探訪關西傳統與萬聖節限時狂歡的秘密</p>
+      </div>
+
+      <!-- Guide Card 1: Universal Studios Halloween -->
+      <article class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 space-y-3">
+        <div class="relative h-36 rounded-xl overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80');">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-3">
+            <h3 class="text-white font-bold text-base">日本環球影城 萬聖節驚魂夜</h3>
+          </div>
+        </div>
+        <p class="text-xs text-gray-700 leading-relaxed">
+          秋季限時活動！日間有超萌的小小兵與庫洛米萬聖派對，夜間則化身為「殭屍街頭」，數十種血腥殭屍會突襲園區。2026特別注意《鏈鋸人》、《惡靈古堡》沉浸式迷宮以及《芙莉蓮》聯名限時活動！
+        </p>
+        <div class="bg-white/70 p-2.5 rounded-xl border border-sand-200 text-[11px] space-y-1 text-gray-600">
+          <div><strong class="text-matcha-800">💡 必攻略點：</strong> 開園即抽「芙莉蓮整理券」，確認超級任天堂世界與哈利波特入場時間。</div>
+          <div><strong class="text-matcha-800">🧟 夜間重點：</strong> 19:00 殭屍街頭遊行，左半邊與右上角分區體驗不同驚悚氛圍。</div>
+        </div>
+        <!-- OSM Map -->
+        <div class="rounded-xl overflow-hidden border border-sand-300 h-40">
+          <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=135.4248%2C34.6620%2C135.4380%2C34.6685&amp;layer=mapnik"></iframe>
+        </div>
+      </article>
+
+      <!-- Guide Card 2: Arashiyama & Romantic Train -->
+      <article class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 space-y-3">
+        <div class="relative h-36 rounded-xl overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80');">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-3">
+            <h3 class="text-white font-bold text-base">嵐山與嵯峨野觀光小火車</h3>
+          </div>
+        </div>
+        <p class="text-xs text-gray-700 leading-relaxed">
+          嵐山自平安時代起就是貴族避暑賞楓勝地。嵯峨野觀光小火車沿著保津川溪谷行駛，車程約25分鐘，能欣賞壯麗的溪谷風光與初秋轉紅的楓葉。
+        </p>
+        <div class="bg-white/70 p-2.5 rounded-xl border border-sand-200 text-[11px] text-gray-600">
+          <strong class="text-matcha-800">💡 建議路線：</strong> JR馬堀站步行至小火車龜岡站，搭乘「嵯峨野2號」至嵐山站，下車後順遊竹林小徑與渡月橋。
+        </div>
+      </article>
+
+      <!-- Guide Card 3: Mikane Shrine -->
+      <article class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 space-y-3">
+        <div class="flex space-x-3 items-center">
+          <div class="w-20 h-20 rounded-xl bg-vermilion/10 text-vermilion flex items-center justify-center flex-shrink-0 text-2xl font-bold border border-vermilion/20">
+            金
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-matcha-900">御金神社 (Mikane Shrine)</h3>
+            <p class="text-[11px] text-gray-600 mt-1">京都著名的財運神社，供奉金山毘古神。黃金鳥居是其標誌，許多拜訪者特地來洗錢（洗貨幣）並購買金色發財御守。</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= WALLET PAGE ================= -->
+    <section id="page-wallet" class="tab-content hidden space-y-5">
+      
+      <!-- Calculator & Exchange Section -->
+      <div class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 space-y-3">
+        <div class="flex justify-between items-center border-b border-sand-200 pb-2">
+          <span class="text-xs font-bold text-matcha-800"><i class="fa-solid fa-calculator mr-1"></i> 即時計算與匯率換算</span>
+          <div class="flex items-center space-x-1 text-xs text-gray-600">
+            <span>匯率:</span>
+            <input type="number" id="exchange-rate" value="0.21" step="0.005" onchange="saveRate()" class="w-14 px-1 py-0.5 border border-sand-300 rounded text-center bg-white text-xs">
+          </div>
+        </div>
+
+        <!-- Calculator Display -->
+        <div class="bg-white p-3 rounded-xl border border-sand-200 text-right space-y-1">
+          <div id="calc-expr" class="text-xs text-gray-400 h-4 overflow-x-auto hide-scrollbar">0</div>
+          <div id="calc-display" class="text-xl font-bold text-gray-800 h-7 overflow-x-auto hide-scrollbar">0</div>
+          <div class="text-xs text-matcha-600 font-semibold pt-1 border-t border-dashed border-sand-200">
+            ≈ NT$ <span id="calc-twd">0</span>
+          </div>
+        </div>
+
+        <!-- Calculator Keypad -->
+        <div class="grid grid-cols-4 gap-1.5 text-xs">
+          <button onclick="calcInput('C')" class="p-2.5 bg-sand-200 text-gray-700 rounded-lg font-bold hover:bg-sand-300">C</button>
+          <button onclick="calcInput('/')" class="p-2.5 bg-matcha-100 text-matcha-800 rounded-lg font-bold hover:bg-matcha-200">÷</button>
+          <button onclick="calcInput('*')" class="p-2.5 bg-matcha-100 text-matcha-800 rounded-lg font-bold hover:bg-matcha-200">×</button>
+          <button onclick="calcInput('DEL')" class="p-2.5 bg-sand-200 text-gray-700 rounded-lg font-bold hover:bg-sand-300"><i class="fa-solid fa-backspace"></i></button>
+
+          <button onclick="calcInput('7')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">7</button>
+          <button onclick="calcInput('8')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">8</button>
+          <button onclick="calcInput('9')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">9</button>
+          <button onclick="calcInput('-')" class="p-2.5 bg-matcha-100 text-matcha-800 rounded-lg font-bold hover:bg-matcha-200">-</button>
+
+          <button onclick="calcInput('4')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">4</button>
+          <button onclick="calcInput('5')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">5</button>
+          <button onclick="calcInput('6')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">6</button>
+          <button onclick="calcInput('+')" class="p-2.5 bg-matcha-100 text-matcha-800 rounded-lg font-bold hover:bg-matcha-200">+</button>
+
+          <button onclick="calcInput('1')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">1</button>
+          <button onclick="calcInput('2')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">2</button>
+          <button onclick="calcInput('3')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">3</button>
+          <button onclick="calcInput('=')" class="row-span-2 p-2.5 bg-matcha-600 text-white rounded-lg font-bold hover:bg-matcha-700 flex items-center justify-center">=</button>
+
+          <button onclick="calcInput('0')" class="col-span-2 p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">0</button>
+          <button onclick="calcInput('.')" class="p-2.5 bg-white text-gray-800 rounded-lg font-semibold shadow-sm hover:bg-sand-50">.</button>
+        </div>
+      </div>
+
+      <!-- Add Expense Form -->
+      <div class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 space-y-3">
+        <h3 class="text-xs font-bold text-matcha-800"><i class="fa-solid fa-pen-to-square mr-1"></i> 新增消費記錄</h3>
+        <div class="space-y-2">
+          <input type="text" id="expense-item" placeholder="品項名稱 (如: 瑪利歐帽子)" class="w-full text-xs p-2.5 rounded-xl border border-sand-300 bg-white focus:outline-none focus:ring-1 focus:ring-matcha-500">
+          <div class="flex space-x-2">
+            <input type="number" id="expense-jpy" placeholder="日幣金額 (JPY)" class="flex-1 text-xs p-2.5 rounded-xl border border-sand-300 bg-white focus:outline-none focus:ring-1 focus:ring-matcha-500">
+            <label class="cursor-pointer px-3 py-2.5 bg-sand-200 text-gray-700 rounded-xl text-xs font-semibold flex items-center space-x-1 hover:bg-sand-300">
+              <i class="fa-solid fa-camera text-matcha-700"></i>
+              <span id="photo-label">照片</span>
+              <input type="file" id="expense-photo" accept="image/*" capture="environment" class="hidden" onchange="handlePhotoSelect(event)">
+            </label>
+          </div>
+          <!-- Photo preview indicator -->
+          <div id="photo-preview-container" class="hidden flex items-center space-x-2 pt-1">
+            <img id="photo-preview" class="w-10 h-10 object-cover rounded-lg border border-sand-300">
+            <span class="text-[10px] text-gray-500">照片已選擇 (壓縮完畢)</span>
+            <button onclick="clearPhoto()" class="text-xs text-vermilion p-1"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <button onclick="addExpense()" class="w-full py-2.5 bg-matcha-600 text-white rounded-xl text-xs font-bold hover:bg-matcha-700 shadow-sm transition-all">
+            儲存記帳
+          </button>
+        </div>
+      </div>
+
+      <!-- Expense List -->
+      <div class="space-y-2">
+        <div class="flex justify-between items-center px-1">
+          <h3 class="text-xs font-bold text-matcha-900">消費歷史清單</h3>
+          <span class="text-[11px] text-gray-600">總計: <strong class="text-matcha-700" id="total-jpy">0</strong> JPY (≈ NT$ <span id="total-twd">0</span>)</span>
+        </div>
+        <div id="expense-list" class="space-y-2">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LISTS PAGE ================= -->
+    <section id="page-lists" class="tab-content hidden space-y-5">
+      
+      <!-- Packing Checklist -->
+      <div class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 space-y-3">
+        <div class="flex justify-between items-center border-b border-sand-200 pb-2">
+          <h3 class="text-xs font-bold text-matcha-800"><i class="fa-solid fa-list-check mr-1"></i> 行前準備 CheckList</h3>
+          <span id="checklist-progress" class="text-[10px] bg-matcha-100 text-matcha-800 px-2 py-0.5 rounded-full">0/0</span>
+        </div>
+        <div id="checklist-container" class="space-y-1.5 max-h-60 overflow-y-auto pr-1">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Memo & URLs -->
+      <div class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 space-y-3">
+        <h3 class="text-xs font-bold text-matcha-800"><i class="fa-solid fa-note-sticky mr-1"></i> 個人備忘錄與連結</h3>
+        <div class="space-y-2">
+          <div class="flex space-x-2">
+            <input type="text" id="memo-input" placeholder="輸入文字或網址 (http...)" class="flex-1 text-xs p-2.5 rounded-xl border border-sand-300 bg-white focus:outline-none focus:ring-1 focus:ring-matcha-500">
+            <button onclick="addMemo()" class="px-4 py-2.5 bg-matcha-600 text-white rounded-xl text-xs font-bold hover:bg-matcha-700">
+              新增
+            </button>
+          </div>
+          <div id="memo-list" class="space-y-2 pt-1">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INFO PAGE ================= -->
+    <section id="page-info" class="tab-content hidden space-y-5">
+      
+      <!-- Weather Link -->
+      <div class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 flex justify-between items-center">
+        <div>
+          <h3 class="text-xs font-bold text-matcha-900"><i class="fa-solid fa-cloud-sun text-matcha-600 mr-1"></i> 當地天氣預報</h3>
+          <p class="text-[10px] text-gray-500 mt-0.5">即時查詢大阪與京都氣象狀況</p>
+        </div>
+        <a href="https://www.jma.go.jp/bosai/forecast/" target="_blank" class="px-3 py-1.5 bg-matcha-100 text-matcha-800 border border-matcha-200 rounded-xl text-xs font-semibold hover:bg-matcha-200">
+          氣象廳官網 <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-0.5"></i>
+        </a>
+      </div>
+
+      <!-- Emergency Contacts -->
+      <div class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 space-y-3">
+        <h3 class="text-xs font-bold text-vermilion"><i class="fa-solid fa-phone-volume mr-1"></i> 緊急聯絡資訊</h3>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="bg-white/80 p-2.5 rounded-xl border border-sand-200">
+            <span class="text-gray-500 text-[10px] block">報案 / 警察</span>
+            <a href="tel:110" class="font-bold text-matcha-900 text-sm">110</a>
+          </div>
+          <div class="bg-white/80 p-2.5 rounded-xl border border-sand-200">
+            <span class="text-gray-500 text-[10px] block">救護車 / 火災</span>
+            <a href="tel:119" class="font-bold text-matcha-900 text-sm">119</a>
+          </div>
+        </div>
+        <div class="bg-white/80 p-2.5 rounded-xl border border-sand-200 space-y-1 text-xs">
+          <span class="text-gray-500 text-[10px] block">台北駐大阪經濟文化辦事處</span>
+          <div class="font-bold text-gray-800">緊急聯絡電話：+81-90-8794-4254</div>
+          <div class="text-[10px] text-gray-600">日本國內直撥：090-8794-4254</div>
+        </div>
+      </div>
+
+      <!-- Travel Tips & Customs -->
+      <div class="bg-sand-50 rounded-2xl p-4 shadow-sm border border-sand-200 space-y-2">
+        <h3 class="text-xs font-bold text-matcha-800"><i class="fa-solid fa-triangle-exclamation mr-1"></i> 日本入境與旅遊禁忌</h3>
+        <ul class="text-[11px] text-gray-700 space-y-1.5 list-disc pl-4 leading-relaxed">
+          <li><strong>嚴禁肉類製品：</strong> 任何肉製品（含肉乾、含肉泡麵）切勿帶入境，重罰且無通融。</li>
+          <li><strong>行動電源規定：</strong> 必須隨身攜帶，嚴禁放進託運行李。</li>
+          <li><strong>大眾運輸禮儀：</strong> 電車內請切換靜音模式，避免講電話。</li>
+          <li><strong>垃圾分類：</strong> 街頭很少垃圾桶，請隨身攜帶小袋子，車站或自動販賣機旁可丟瓶罐。</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-sand-50/95 backdrop-blur-md border-t border-sand-200 z-50 px-2 py-1.5">
+    <div class="grid grid-cols-5 gap-1 text-center">
+      <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn py-1 text-matcha-700 flex flex-col items-center space-y-0.5">
+        <i class="fa-solid fa-calendar-days text-base"></i>
+        <span class="text-[10px] font-bold">PLAN</span>
+      </button>
+      <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn py-1 text-gray-400 hover:text-matcha-600 flex flex-col items-center space-y-0.5">
+        <i class="fa-solid fa-map-location-dot text-base"></i>
+        <span class="text-[10px] font-medium">GUIDE</span>
+      </button>
+      <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn py-1 text-gray-400 hover:text-matcha-600 flex flex-col items-center space-y-0.5">
+        <i class="fa-solid fa-wallet text-base"></i>
+        <span class="text-[10px] font-medium">WALLET</span>
+      </button>
+      <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn py-1 text-gray-400 hover:text-matcha-600 flex flex-col items-center space-y-0.5">
+        <i class="fa-solid fa-square-check text-base"></i>
+        <span class="text-[10px] font-medium">LISTS</span>
+      </button>
+      <button onclick="switchTab('info')" id="nav-info" class="nav-btn py-1 text-gray-400 hover:text-matcha-600 flex flex-col items-center space-y-0.5">
+        <i class="fa-solid fa-circle-info text-base"></i>
+        <span class="text-[10px] font-medium">INFO</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- JavaScript Code Base -->
+  <script>
+    // --- DATA STRUCTURE: ITINERARY ---
+    const itineraryData = {
+      1: [
+        { time: "10:10", title: "抵達關西國際機場 (KIX)", desc: "辦理入境手續、取行李與準備搭車", highlight: false },
+        { time: "11:14", title: "搭車前往京都", desc: "11:14 ➔ 12:34 抵達京都車站", highlight: true },
+        { time: "12:45", title: "Check-in 飯店", desc: "京站八條口 VIA INN PRIME 寄放行李/入住", highlight: false, map: "VIA+INN+PRIME+KYOTOEKI+HACHIJOGUCHI" },
+        { time: "13:30", title: "御金神社", desc: "洗錢洗財運，求黃金御守", highlight: false, map: "御金神社" },
+        { time: "14:00", title: "午餐：空蟬亭", desc: "熟成炸豬排名店", highlight: false, map: "空蟬亭" },
+        { time: "15:30", title: "金閣寺 (鹿苑寺)", desc: "欣賞金碧輝煌的舍利殿與日式庭園", highlight: false, map: "金閣寺" },
+        { time: "17:30", title: "新風館、潮牌一條街", desc: "逛街採買、感受京都老建築與現代時尚結合", highlight: false, map: "新風館" },
+        { time: "20:00", title: "晚餐：六角ACE", desc: "人氣居酒屋聚餐", highlight: false, map: "六角ACE" },
+        { time: "21:30", title: "續攤/夜景選一", desc: "Mar Cafe 或 in the moon酒吧 或 京都車站夜景", highlight: false }
+      ],
+      2: [
+        { time: "06:00", title: "Check out 寄放行李", desc: "準備前往清水寺早鳥參拜", highlight: true },
+        { time: "06:15", title: "清水寺", desc: "清晨無人的舞台與音羽之瀑", highlight: false, map: "清水寺" },
+        { time: "08:30", title: "前往馬堀站", desc: "計程車到京都車站轉JR至馬堀站 (或直接小黃去馬堀)，步行至小火車龜岡站", highlight: true },
+        { time: "09:30", title: "嵯峨野觀光小火車", desc: "龜岡站搭乘 嵯峨野2號 (09:53抵達嵐山站)", highlight: true },
+        { time: "10:00", title: "嵐山散策", desc: "10:00-12:30 竹林小徑、野宮神社、渡月橋", highlight: false, map: "嵐山竹林小路" },
+        { time: "12:30", title: "午餐", desc: "嵐山當地特色美食", highlight: false },
+        { time: "14:00", title: "JR嵯峨嵐山站", desc: "準備返回京都車站取行李", highlight: false },
+        { time: "14:30", title: "取行李 ➔ 移動至大阪", desc: "14:45 搭車至梅田 (15:16 抵達)", highlight: false },
+        { time: "15:16", title: "Check in 飯店", desc: "維亞飯店梅田 (VIA INN UMEDA)", highlight: false, map: "VIA+INN+UMEDA" },
+        { time: "16:00", title: "橘街 (Orange Street)", desc: "南堀江潮流服飾與雜貨巡禮", highlight: false, map: "Orange+Street+Osaka" },
+        { time: "18:30", title: "心齋橋、道頓堀", desc: "熱鬧商圈逛街 + 吃晚餐", highlight: false, map: "道頓堀" },
+        { time: "22:00", title: "返回飯店休息", desc: "養精蓄銳準備迎戰環球影城！", highlight: false }
+      ],
+      3: [
+        { time: "07:00", title: "出發前往環球影城", desc: "包車/電車移動 (開園時間 08:30〜21:30)", highlight: true },
+        { time: "07:30", title: "抵達 USJ 現場等候", desc: "準備提早入園衝刺！", highlight: true },
+        { time: "08:30", title: "開園衝刺！", desc: "衝真子、鏈鋸人！抽《芙莉蓮》整理券！", highlight: true },
+        { time: "10:40", title: "RESIDENT EVIL (惡靈古堡)", desc: "10:40 - 11:10 體驗驚悚迷宮", highlight: false },
+        { time: "11:40", title: "恐怖工廠", desc: "11:40 - 12:10 萬聖節限定設施", highlight: false },
+        { time: "12:30", title: "補充能量", desc: "園區買小吃點心", highlight: false },
+        { time: "13:00", title: "NO LIMIT! 遊行", desc: "觀賞歡樂大遊行", highlight: false },
+        { time: "14:40", title: "殘像設施體驗", desc: "依照預約時間體驗", highlight: false },
+        { time: "15:30", title: "大白鯊", desc: "經典乘車遊", highlight: false },
+        { time: "16:00", title: "環球奇境", desc: "Snoopy / Hello Kitty 區域拍照放鬆", highlight: false },
+        { time: "17:00", title: "哈利波特魔法世界", desc: "17:30 三巫錦標賽、禁忌之旅，三根掃帚餐廳晚餐", highlight: false },
+        { time: "19:00", title: "街頭殭屍 (左半邊)", desc: "萬聖節驚魂夜 殭屍街頭巡邏狂歡", highlight: true },
+        { time: "21:30", title: "離園與晚餐", desc: "出園吃晚餐後回飯店", highlight: false }
+      ],
+      4: [
+        { time: "07:00", title: "出發前往環球影城", desc: "Day 2 環球戰場！(開園時間 08:00〜22:00)", highlight: true },
+        { time: "07:30", title: "抵達 USJ 現場等候", desc: "早起入園獲得最佳排隊優勢", highlight: true },
+        { time: "08:00", title: "開園衝刺！", desc: "抽芙莉蓮整理券 ＋ 衝好萊塢美夢乘車遊", highlight: true },
+        { time: "09:30", title: "芙莉蓮周邊與體驗", desc: "逛周邊商店/體驗限定內容", highlight: false },
+        { time: "10:20", title: "超級任天堂世界", desc: "10:20-10:50 庫巴挑戰書 / 10:50-11:20 咚奇剛瘋狂礦車", highlight: true },
+        { time: "11:30", title: "奇諾比奧隊長餐廳", desc: "午餐享受可愛主題餐點", highlight: false },
+        { time: "13:00", title: "哈利波特園區二訪", desc: "深入體驗魔法世界", highlight: false },
+        { time: "14:50", title: "水世界表演", desc: "觀賞精彩實景水上特技", highlight: false },
+        { time: "15:30", title: "侏羅紀公園 - 乘船遊", desc: "恐龍體驗與濕身冒險", highlight: false },
+        { time: "16:30", title: "飛天翼龍", desc: "極限刺激過山車", highlight: false },
+        { time: "17:00", title: "芙莉蓮主題餐廳", desc: "享受限時合作餐點", highlight: false },
+        { time: "18:00", title: "小小兵樂園", desc: "體驗瘋狂乘車遊", highlight: false },
+        { time: "18:30", title: "街頭殭屍 (右上區)", desc: "解鎖不同區域的萬聖節殭屍派對", highlight: true },
+        { time: "21:30", title: "離園與回家", desc: "出園晚餐，搭車回飯店", highlight: false }
+      ],
+      5: [
+        { time: "08:30", title: "Check out 寄放行李", desc: "準備最後一天大阪市區巡禮", highlight: true },
+        { time: "09:00", title: "露天神社 (初天神)", desc: "祈求結緣與旅途順利", highlight: false, map: "露天神社" },
+        { time: "10:00", title: "中崎町復古老街", desc: "文青巷弄、古著與老宅咖啡館散策", highlight: false, map: "中崎町" },
+        { time: "13:00", title: "午餐：燒肉うしごろ 梅田店", desc: "高級和牛燒肉大餐", highlight: false, map: "燒肉うしごろ+梅田店" },
+        { time: "14:30", title: "Grand Green Osaka", desc: "梅田最新地標綠地公園散步", highlight: false, map: "Grand+Green+Osaka" },
+        { time: "15:00", title: "取行李 ➔ 機場接送", desc: "包車/接送專車直達關西機場", highlight: true },
+        { time: "16:00", title: "抵達 KIX 關西機場", desc: "辦理登機、免稅店最後採買 (18:10 起飛)", highlight: true }
+      ]
+    };
+
+    const initialChecklist = [
+      "護照", "信用卡", "外幣、台幣", "網卡 (esim)", "換洗衣物、鞋子、拖鞋",
+      "首飾", "藥品（頭痛、胃藥、血壓藥、A酸...）", "保養品、化妝品",
+      "相機、記憶卡、電池、底片相機", "墨鏡", "手機吊繩",
+      "行動電源（放隨身）", "充電器", "雨傘"
+    ];
+
+    // --- TAB SWITCHING LOGIC ---
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`page-${tabId}`).classList.remove('hidden');
+
+      // Update Nav Bar UI
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-matcha-700');
+        btn.classList.add('text-gray-400');
+        btn.querySelector('span').classList.remove('font-bold');
+        btn.querySelector('span').classList.add('font-medium');
+      });
+      const activeNav = document.getElementById(`nav-${tabId}`);
+      activeNav.classList.remove('text-gray-400');
+      activeNav.classList.add('text-matcha-700');
+      activeNav.querySelector('span').classList.remove('font-medium');
+      activeNav.querySelector('span').classList.add('font-bold');
+    }
+
+    // --- RENDER TIMELINE ---
+    function switchDay(dayNum) {
+      // Update Day Buttons
+      document.querySelectorAll('.day-tab-btn').forEach((btn, idx) => {
+        if (idx + 1 === dayNum) {
+          btn.className = "day-tab-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-matcha-600 text-white shadow-sm transition-all";
+        } else {
+          btn.className = "day-tab-btn flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-sand-200 text-gray-700 hover:bg-sand-300 transition-all";
+        }
+      });
+
+      const container = document.getElementById('timeline-container');
+      const items = itineraryData[dayNum] || [];
+
+      let html = '<div class="absolute left-16 top-3 bottom-3 w-0.5 bg-sand-300"></div>';
+
+      items.forEach(item => {
+        const borderStyle = item.highlight 
+          ? 'border-l-4 border-l-vermilion bg-white' 
+          : 'bg-sand-50/80 border-sand-200';
+        
+        const mapBtn = item.map 
+          ? `<a href="https://maps.google.com/?q=${item.map}" target="_blank" class="inline-flex items-center text-[10px] text-matcha-600 bg-matcha-50 px-2 py-0.5 rounded border border-matcha-200 mt-1 hover:bg-matcha-100">
+               <i class="fa-solid fa-map-location-dot mr-1"></i>Google Maps
+             </a>`
+          : '';
+
+        html += `
+          <div class="relative flex items-start space-x-3 group">
+            <!-- Time on the LEFT -->
+            <div class="w-12 text-right flex-shrink-0 pt-0.5">
+              <span class="text-xs font-bold text-matcha-800 tracking-tight block">${item.time}</span>
+            </div>
+
+            <!-- Dot Marker -->
+            <div class="relative z-10 w-3 h-3 rounded-full ${item.highlight ? 'bg-vermilion ring-4 ring-vermilion/20' : 'bg-matcha-500'} mt-1 flex-shrink-0 -ml-1.5"></div>
+
+            <!-- Content Card -->
+            <div class="flex-1 ${borderStyle} p-3 rounded-2xl border shadow-sm space-y-1">
+              <h4 class="text-xs font-bold text-gray-800">${item.title}</h4>
+              <p class="text-[11px] text-gray-600 leading-normal">${item.desc}</p>
+              ${mapBtn}
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    // --- CALCULATOR ENGINE ---
+    let calcExpr = "";
+
+    function calcInput(val) {
+      const display = document.getElementById('calc-display');
+      const exprDisplay = document.getElementById('calc-expr');
+      
+      if (val === 'C') {
+        calcExpr = "";
+      } else if (val === 'DEL') {
+        calcExpr = calcExpr.slice(0, -1);
+      } else if (val === '=') {
+        try {
+          if (calcExpr) {
+            // Safe evaluation of simple math operators
+            const sanitized = calcExpr.replace(/[^0-9+\-*/.]/g, '');
+            const result = Function(`'use strict'; return (${sanitized})`)();
+            calcExpr = String(Math.round(result * 100) / 100);
+          }
+        } catch (e) {
+          calcExpr = "Error";
+        }
+      } else {
+        if (calcExpr === "Error") calcExpr = "";
+        calcExpr += val;
+      }
+
+      exprDisplay.innerText = calcExpr || "0";
+      const evalNum = parseFloat(calcExpr) || 0;
+      display.innerText = isNaN(evalNum) ? "0" : evalNum.toLocaleString();
+      
+      updateTwdCalc(evalNum);
+    }
+
+    function updateTwdCalc(jpyVal) {
+      const rate = parseFloat(document.getElementById('exchange-rate').value) || 0.21;
+      const twd = Math.round(jpyVal * rate);
+      document.getElementById('calc-twd').innerText = twd.toLocaleString();
+    }
+
+    function saveRate() {
+      const rate = document.getElementById('exchange-rate').value;
+      localStorage.setItem('kansai_rate', rate);
+      calcInput(''); // refresh calculations
+      renderExpenses();
+    }
+
+    // --- EXPENSE TRACKER (LOCALSTORAGE) ---
+    let currentBase64Photo = "";
+
+    function handlePhotoSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          // Canvas compression
+          const canvas = document.createElement('canvas');
+          const maxDim = 300; // max thumbnail size
+          let width = img.width;
+          let height = img.height;
+
+          if (width > height) {
+            if (width > maxDim) {
+              height *= maxDim / width;
+              width = maxDim;
+            }
+          } else {
+            if (height > maxDim) {
+              width *= maxDim / height;
+              height = maxDim;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          
+          currentBase64Photo = canvas.toDataURL('image/jpeg', 0.6); // 60% quality jpeg
+          
+          document.getElementById('photo-preview').src = currentBase64Photo;
+          document.getElementById('photo-preview-container').classList.remove('hidden');
+          document.getElementById('photo-label').innerText = "已選取";
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearPhoto() {
+      currentBase64Photo = "";
+      document.getElementById('expense-photo').value = "";
+      document.getElementById('photo-preview-container').classList.add('hidden');
+      document.getElementById('photo-label').innerText = "照片";
+    }
+
+    function addExpense() {
+      const itemInput = document.getElementById('expense-item');
+      const jpyInput = document.getElementById('expense-jpy');
+
+      const item = itemInput.value.trim();
+      const jpy = parseFloat(jpyInput.value);
+
+      if (!item || isNaN(jpy) || jpy <= 0) {
+        alert("請輸入有效的品項與金額！");
+        return;
+      }
+
+      const expenses = JSON.parse(localStorage.getItem('kansai_expenses') || '[]');
+      const newExpense = {
+        id: Date.now(),
+        item: item,
+        jpy: jpy,
+        photo: currentBase64Photo,
+        date: new Date().toLocaleDateString('zh-TW', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+      };
+
+      expenses.unshift(newExpense);
+      localStorage.setItem('kansai_expenses', JSON.stringify(expenses));
+
+      // Reset form
+      itemInput.value = "";
+      jpyInput.value = "";
+      clearPhoto();
+
+      renderExpenses();
+    }
+
+    function deleteExpense(id) {
+      let expenses = JSON.parse(localStorage.getItem('kansai_expenses') || '[]');
+      expenses = expenses.filter(e => e.id !== id);
+      localStorage.setItem('kansai_expenses', JSON.stringify(expenses));
+      renderExpenses();
+    }
+
+    function renderExpenses() {
+      const expenses = JSON.parse(localStorage.getItem('kansai_expenses') || '[]');
+      const rate = parseFloat(localStorage.getItem('kansai_rate') || '0.21');
+      const listContainer = document.getElementById('expense-list');
+
+      let totalJpy = 0;
+      let html = "";
+
+      if (expenses.length === 0) {
+        listContainer.innerHTML = '<div class="text-center text-xs text-gray-400 py-4">尚無消費記錄</div>';
+        document.getElementById('total-jpy').innerText = "0";
+        document.getElementById('total-twd').innerText = "0";
+        return;
+      }
+
+      expenses.forEach(exp => {
+        totalJpy += exp.jpy;
+        const twd = Math.round(exp.jpy * rate);
+        const photoHtml = exp.photo 
+          ? `<img src="${exp.photo}" class="w-10 h-10 object-cover rounded-lg flex-shrink-0 border border-sand-200">`
+          : `<div class="w-10 h-10 bg-sand-200 rounded-lg flex items-center justify-center text-gray-400 text-xs flex-shrink-0"><i class="fa-solid fa-receipt"></i></div>`;
+
+        html += `
+          <div class="bg-sand-50/90 p-2.5 rounded-xl border border-sand-200 flex justify-between items-center space-x-2">
+            <div class="flex items-center space-x-2.5 overflow-hidden">
+              ${photoHtml}
+              <div class="truncate">
+                <div class="text-xs font-bold text-gray-800 truncate">${exp.item}</div>
+                <div class="text-[10px] text-gray-400">${exp.date}</div>
+              </div>
+            </div>
+            <div class="text-right flex-shrink-0">
+              <div class="text-xs font-bold text-matcha-900">¥${exp.jpy.toLocaleString()}</div>
+              <div class="text-[10px] text-gray-500">≈ NT$ ${twd.toLocaleString()}</div>
+            </div>
+            <button onclick="deleteExpense(${exp.id})" class="text-gray-400 hover:text-vermilion p-1 text-xs">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `;
+      });
+
+      listContainer.innerHTML = html;
+      document.getElementById('total-jpy').innerText = totalJpy.toLocaleString();
+      document.getElementById('total-twd').innerText = Math.round(totalJpy * rate).toLocaleString();
+    }
+
+    // --- CHECKLIST & MEMO SYSTEM ---
+    function initChecklist() {
+      let saved = localStorage.getItem('kansai_checklist');
+      let items = saved ? JSON.parse(saved) : initialChecklist.map(title => ({ title, checked: false }));
+      
+      // Save initial if empty
+      if (!saved) localStorage.setItem('kansai_checklist', JSON.stringify(items));
+      
+      renderChecklist(items);
+    }
+
+    function toggleChecklist(index) {
+      let items = JSON.parse(localStorage.getItem('kansai_checklist'));
+      items[index].checked = !items[index].checked;
+      localStorage.setItem('kansai_checklist', JSON.stringify(items));
+      renderChecklist(items);
+    }
+
+    function renderChecklist(items) {
+      const container = document.getElementById('checklist-container');
+      let checkedCount = 0;
+      let html = "";
+
+      items.forEach((item, idx) => {
+        if (item.checked) checkedCount++;
+        html += `
+          <label class="flex items-center space-x-2.5 p-2 bg-white/70 rounded-xl border border-sand-200 cursor-pointer">
+            <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="toggleChecklist(${idx})" class="rounded text-matcha-600 focus:ring-matcha-500 h-4 w-4">
+            <span class="text-xs ${item.checked ? 'line-through text-gray-400' : 'text-gray-800 font-medium'}">${item.title}</span>
+          </label>
+        `;
+      });
+
+      container.innerHTML = html;
+      document.getElementById('checklist-progress').innerText = `${checkedCount}/${items.length}`;
+    }
+
+    function addMemo() {
+      const input = document.getElementById('memo-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const memos = JSON.parse(localStorage.getItem('kansai_memos') || '[]');
+      memos.unshift({ id: Date.now(), text });
+      localStorage.setItem('kansai_memos', JSON.stringify(memos));
+
+      input.value = "";
+      renderMemos();
+    }
+
+    function deleteMemo(id) {
+      let memos = JSON.parse(localStorage.getItem('kansai_memos') || '[]');
+      memos = memos.filter(m => m.id !== id);
+      localStorage.setItem('kansai_memos', JSON.stringify(memos));
+      renderMemos();
+    }
+
+    function renderMemos() {
+      const memos = JSON.parse(localStorage.getItem('kansai_memos') || '[]');
+      const container = document.getElementById('memo-list');
+
+      if (memos.length === 0) {
+        container.innerHTML = '<div class="text-center text-xs text-gray-400 py-2">尚未儲存任何備忘錄</div>';
+        return;
+      }
+
+      let html = "";
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+      memos.forEach(m => {
+        const isUrl = urlRegex.test(m.text);
+        let contentHtml = "";
+
+        if (isUrl) {
+          contentHtml = `
+            <div class="space-y-1">
+              <div class="text-xs text-gray-700 break-all">${m.text}</div>
+              <a href="${m.text}" target="_blank" class="inline-flex items-center text-[10px] bg-matcha-600 text-white px-2.5 py-1 rounded-lg font-bold hover:bg-matcha-700">
+                <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>開啟連結
+              </a>
+            </div>
+          `;
+        } else {
+          contentHtml = `<p class="text-xs text-gray-800 leading-relaxed">${m.text}</p>`;
+        }
+
+        html += `
+          <div class="bg-white/80 p-2.5 rounded-xl border border-sand-200 flex justify-between items-start space-x-2">
+            <div class="flex-1">${contentHtml}</div>
+            <button onclick="deleteMemo(${m.id})" class="text-gray-400 hover:text-vermilion p-1 text-xs">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    // --- INITIALIZATION ---
+    window.addEventListener('DOMContentLoaded', () => {
+      // 1. Render default Timeline (Day 1)
+      switchDay(1);
+
+      // 2. Load saved rate
+      const savedRate = localStorage.getItem('kansai_rate');
+      if (savedRate) {
+        document.getElementById('exchange-rate').value = savedRate;
+      }
+
+      // 3. Render Wallet, Checklist, and Memos
+      renderExpenses();
+      initChecklist();
+      renderMemos();
+    });
+  </script>
+</body>
+</html>
