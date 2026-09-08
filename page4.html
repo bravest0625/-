@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>泰泰泰開心了！</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            thai: {
+              tea: '#C86D51',       // 泰奶橘
+              cream: '#FBF7F2',     // 質感暖灰/奶油底色
+              card: '#FFFFFF',      // 卡片白
+              sand: '#E6D7C3',      // 沙灘裸色
+              sage: '#8F9E8B',      // 鼠尾草綠
+              text: '#3D342F',      // 深咖/墨灰文字
+              lighttext: '#8C827A'  // 淺咖文字
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FBF7F2;
+      color: #3D342F;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* 隱藏 Scrollbar 但保留滾動 */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased pb-24 max-w-md mx-auto min-h-screen relative shadow-2xl bg-thai-cream">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-thai-cream/90 backdrop-blur-md border-b border-thai-sand/40 px-5 py-4 flex items-center justify-between">
+    <div>
+      <span class="text-xs font-semibold tracking-widest text-thai-tea uppercase block">BANGKOK 2026</span>
+      <h1 class="text-xl font-bold text-thai-text flex items-center gap-2">
+        泰泰泰開心了！ <i class="fa-solid font-normal fa-sparkles text-thai-tea text-sm"></i>
+      </h1>
+    </div>
+    <div class="text-right">
+      <span class="inline-block bg-thai-tea/10 text-thai-tea text-xs px-2.5 py-1 rounded-full font-medium">12/24 - 12/29</span>
+    </div>
+  </header>
+
+  <!-- Main Content Container (Dynamic Tabs) -->
+  <main id="app-content" class="p-4">
+
+    <!-- ================= PAGE 1: PLAN (行程表) ================= -->
+    <section id="tab-plan" class="tab-page space-y-6">
+      
+      <!-- 航班與住宿摘要卡片 -->
+      <div class="bg-thai-card p-4 rounded-2xl shadow-sm border border-thai-sand/30 space-y-3">
+        <div class="flex items-center justify-between border-b border-gray-100 pb-2">
+          <span class="font-bold text-sm text-thai-text"><i class="fa-solid fa-plane-departure text-thai-tea mr-2"></i>航班資訊</span>
+          <span class="text-xs text-thai-lighttext">長榮航空 BR</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="bg-thai-cream/60 p-2.5 rounded-xl">
+            <span class="text-thai-tea font-bold block mb-1">去程 12/24</span>
+            <div class="font-semibold text-thai-text">22:30 ➔ 01:25 (+1)</div>
+            <div class="text-thai-lighttext">BR61</div>
+          </div>
+          <div class="bg-thai-cream/60 p-2.5 rounded-xl">
+            <span class="text-thai-tea font-bold block mb-1">回程 12/29</span>
+            <div class="font-semibold text-thai-text">19:55 ➔ 22:00</div>
+            <div class="text-thai-lighttext">BR68</div>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-gray-100">
+          <div class="flex items-start justify-between">
+            <div class="space-y-0.5">
+              <span class="font-bold text-xs text-thai-text block"><i class="fa-solid fa-house-chimney text-thai-tea mr-1.5"></i>住宿：Modern & Elegant 6 Beds Townhouse</span>
+              <p class="text-[11px] text-thai-lighttext line-clamp-1">BTS ONNUT 544 38 Sukhumvit Rd, Phra Khanong</p>
+            </div>
+            <a href="https://maps.app.goo.gl/o9ZsPhHkjosWp9cn9" target="_blank" class="bg-thai-tea text-white text-xs px-2.5 py-1.5 rounded-lg font-medium flex items-center gap-1 shrink-0 ml-2">
+              <i class="fa-solid fa-location-dot"></i> 地圖
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 天數切換 Tab -->
+      <div class="flex gap-2 overflow-x-auto no-scrollbar py-1" id="day-tabs">
+        <button onclick="switchDay(1)" id="btn-day-1" class="day-btn active-day shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition-all">Day 1 (12/24)</button>
+        <button onclick="switchDay(2)" id="btn-day-2" class="day-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium transition-all bg-thai-card text-thai-lighttext">Day 2 (12/25)</button>
+        <button onclick="switchDay(3)" id="btn-day-3" class="day-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium transition-all bg-thai-card text-thai-lighttext">Day 3 (12/26)</button>
+        <button onclick="switchDay(4)" id="btn-day-4" class="day-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium transition-all bg-thai-card text-thai-lighttext">Day 4 (12/27)</button>
+        <button onclick="switchDay(5)" id="btn-day-5" class="day-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium transition-all bg-thai-card text-thai-lighttext">Day 5 (12/28)</button>
+        <button onclick="switchDay(6)" id="btn-day-6" class="day-btn shrink-0 px-4 py-2 rounded-xl text-xs font-medium transition-all bg-thai-card text-thai-lighttext">Day 6 (12/29)</button>
+      </div>
+
+      <!-- 行程列表 Container -->
+      <div id="timeline-container" class="space-y-4">
+        <!-- JS 動態渲染行程 -->
+      </div>
+    </section>
+
+    <!-- ================= PAGE 2: GUIDE (深度導覽) ================= -->
+    <section id="tab-guide" class="tab-page hidden space-y-6">
+      <div class="text-center py-2">
+        <h2 class="text-lg font-bold text-thai-text">景點雜誌與冷知識</h2>
+        <p class="text-xs text-thai-lighttext">曼谷文化深度導覽手冊</p>
+      </div>
+
+      <!-- 景點 1: 鄭王廟 -->
+      <article class="bg-thai-card rounded-2xl overflow-hidden shadow-sm border border-thai-sand/30">
+        <div class="bg-thai-sand/30 p-4 border-b border-thai-sand/20">
+          <span class="text-[10px] tracking-widest text-thai-tea font-bold uppercase block">MUST VISIT</span>
+          <h3 class="text-base font-bold text-thai-text">鄭王廟 (Wat Arun / 黎明寺)</h3>
+        </div>
+        <div class="p-4 space-y-3 text-xs leading-relaxed text-thai-text">
+          <p class="font-medium text-thai-tea">「昭披耶河畔的巴黎鐵塔」</p>
+          <p>鄭王廟是泰國境內規模最大的大乘舍利式塔。主塔高達82米，表面鑲嵌了數以萬計從中國運來的彩色陶瓷與瓷器碎片。在夕陽西下時，彩色瓷片會折射出璀璨的金黃光芒。</p>
+          <div class="bg-thai-cream p-3 rounded-xl space-y-1">
+            <span class="font-bold text-thai-tea block"><i class="fa-solid fa-lightbulb mr-1"></i>小知識/歷史背景</span>
+            <p class="text-[11px] text-thai-lighttext">鄭王（達信大帝）是泰國吞武里王朝的開國君主，父親是潮州人。據傳他當年率軍迎戰緬甸軍隊後，於黎明時分抵達此廟，因而將其重修並命名為黎明寺。</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 景點 2: 嵩越路 -->
+      <article class="bg-thai-card rounded-2xl overflow-hidden shadow-sm border border-thai-sand/30">
+        <div class="bg-thai-sand/30 p-4 border-b border-thai-sand/20">
+          <span class="text-[10px] tracking-widest text-thai-tea font-bold uppercase block">HIPSTER STREET</span>
+          <h3 class="text-base font-bold text-thai-text">嵩越路 (Song Wat Road)</h3>
+        </div>
+        <div class="p-4 space-y-3 text-xs leading-relaxed text-thai-text">
+          <p class="font-medium text-thai-tea">「曼谷最紅的新舊融合文青街區」</p>
+          <p>鄰近中國城，過去曾是老舊的碼頭貿易集散地。近年來有許多精品咖啡（如 SCR）、藝術空間與老宅改建餐廳進駐，保留了中泰混合的古典建築雕花，是文青必訪地標。</p>
+        </div>
+      </article>
+
+      <!-- 景點 3: 芭達雅 (OpenStreetMap 嵌入) -->
+      <article class="bg-thai-card rounded-2xl overflow-hidden shadow-sm border border-thai-sand/30">
+        <div class="bg-thai-sand/30 p-4 border-b border-thai-sand/20">
+          <span class="text-[10px] tracking-widest text-thai-tea font-bold uppercase block">DAY TRIP MAP</span>
+          <h3 class="text-base font-bold text-thai-text">芭達雅 (Pattaya) 地圖</h3>
+        </div>
+        <div class="p-4 space-y-3">
+          <p class="text-xs text-thai-lighttext">Day 5 一日遊目的地位置圖：</p>
+          <div class="w-full h-48 rounded-xl overflow-hidden border border-thai-sand/40">
+            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=100.8500%2C12.8800%2C100.9500%2C12.9800&amp;layer=mapnik"></iframe>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= PAGE 3: WALLET (記帳與匯率) ================= -->
+    <section id="tab-wallet" class="tab-page hidden space-y-6">
+      
+      <!-- 匯率計算機 -->
+      <div class="bg-thai-card p-4 rounded-2xl shadow-sm border border-thai-sand/30 space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-sm text-thai-text"><i class="fa-solid fa-calculator text-thai-tea mr-2"></i>匯率計算機</h3>
+          <div class="flex items-center gap-1 text-xs text-thai-lighttext">
+            <span>1 THB ≈</span>
+            <input type="number" id="exchange-rate" value="0.95" step="0.01" onchange="saveRate()" class="w-14 px-1 py-0.5 border border-thai-sand rounded text-center text-thai-text font-semibold">
+            <span>TWD</span>
+          </div>
+        </div>
+
+        <!-- 算式顯示與結果 -->
+        <div class="bg-thai-cream p-3 rounded-xl space-y-1 text-right">
+          <input type="text" id="calc-input" placeholder="輸入算式 (例 500+200*3)" class="w-full bg-transparent text-right font-mono text-sm text-thai-text outline-none">
+          <div class="text-lg font-bold text-thai-tea" id="calc-result">THB: 0 ➔ TWD: 0</div>
+        </div>
+
+        <button onclick="calculateRate()" class="w-full py-2.5 bg-thai-tea text-white rounded-xl text-xs font-bold shadow-sm active:scale-95 transition-transform">
+          計算並換算台幣
+        </button>
+      </div>
+
+      <!-- 新增記帳 Form -->
+      <div class="bg-thai-card p-4 rounded-2xl shadow-sm border border-thai-sand/30 space-y-3">
+        <h3 class="font-bold text-sm text-thai-text"><i class="fa-solid fa-receipt text-thai-tea mr-2"></i>新增記帳</h3>
+        
+        <div class="space-y-2">
+          <input type="text" id="expense-title" placeholder="品項名稱 (例：芒果糯米飯)" class="w-full px-3 py-2 bg-thai-cream/50 border border-thai-sand/50 rounded-xl text-xs outline-none focus:border-thai-tea">
+          <input type="number" id="expense-amount" placeholder="泰銖金額 (THB)" class="w-full px-3 py-2 bg-thai-cream/50 border border-thai-sand/50 rounded-xl text-xs outline-none focus:border-thai-tea">
+          
+          <!-- 照片上傳 -->
+          <div class="flex items-center gap-2">
+            <label class="flex-1 cursor-pointer bg-thai-cream/80 hover:bg-thai-sand/30 border border-dashed border-thai-sand rounded-xl p-2 text-center text-xs text-thai-lighttext">
+              <i class="fa-solid fa-camera mr-1 text-thai-tea"></i>
+              <span id="photo-label-text">拍照 / 上傳收據縮圖</span>
+              <input type="file" id="expense-photo" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+            </label>
+            <div id="photo-preview-container" class="hidden w-10 h-10 rounded-lg overflow-hidden border border-thai-sand">
+              <img id="photo-preview" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <button onclick="addExpense()" class="w-full py-2.5 bg-thai-sage text-white rounded-xl text-xs font-bold shadow-sm active:scale-95 transition-transform">
+          儲存此筆支出
+        </button>
+      </div>
+
+      <!-- 記帳歷史列表 -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-sm text-thai-text">消費明細</h3>
+          <span class="text-xs text-thai-tea font-bold" id="total-expenses">總計: NT$ 0</span>
+        </div>
+        <div id="expense-list" class="space-y-2">
+          <!-- JS 渲染支出列表 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 4: LISTS (清單) ================= -->
+    <section id="tab-lists" class="tab-page hidden space-y-6">
+      
+      <!-- 行前準備 CheckList -->
+      <div class="bg-thai-card p-4 rounded-2xl shadow-sm border border-thai-sand/30 space-y-3">
+        <h3 class="font-bold text-sm text-thai-text flex items-center justify-between">
+          <span><i class="fa-solid fa-list-check text-thai-tea mr-2"></i>行前準備 CheckList</span>
+          <span class="text-[11px] font-normal text-thai-lighttext" id="checklist-progress">0/0</span>
+        </h3>
+        <div id="checklist-items" class="space-y-2">
+          <!-- JS 動態生成 Checkbox -->
+        </div>
+      </div>
+
+      <!-- 個人備忘錄 -->
+      <div class="bg-thai-card p-4 rounded-2xl shadow-sm border border-thai-sand/30 space-y-3">
+        <h3 class="font-bold text-sm text-thai-text"><i class="fa-solid fa-note-sticky text-thai-tea mr-2"></i>個人備忘錄</h3>
+        <div class="space-y-2">
+          <textarea id="memo-input" rows="3" placeholder="隨手記下事情，若輸入網址 (http://...) 會自動變成可點擊按鈕哦！" class="w-full p-3 bg-thai-cream/50 border border-thai-sand/50 rounded-xl text-xs outline-none focus:border-thai-tea"></textarea>
+          <button onclick="addMemo()" class="w-full py-2 bg-thai-tea text-white rounded-xl text-xs font-bold active:scale-95 transition-transform">
+            新增備忘
+          </button>
+        </div>
+        <div id="memo-list" class="space-y-2 pt-2">
+          <!-- JS 渲染備忘錄 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 5: INFO (實用資訊) ================= -->
+    <section id="tab-info" class="tab-page hidden space-y-6">
+      
+      <!-- 外部氣象連結 -->
+      <div class="bg-thai-card p-4 rounded-2xl shadow-sm border border-thai-sand/30 space-y-2">
+        <h3 class="font-bold text-sm text-thai-text"><i class="fa-solid fa-cloud-sun text-thai-tea mr-2"></i>當地天氣</h3>
+        <p class="text-xs text-thai-lighttext">查看曼谷與芭達雅的即時天氣預報：</p>
+        <a href="https://www.tmd.go.th/en" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-thai-tea bg-thai-tea/10 px-3 py-2 rounded-xl w-full justify-center">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> 泰國氣象局 (TMD) 官網
+        </a>
+      </div>
+
+      <!-- 緊急聯絡 -->
+      <div class="bg-thai-card p-4 rounded-2xl shadow-sm border border-thai-sand/30 space-y-3">
+        <h3 class="font-bold text-sm text-thai-text"><i class="fa-solid fa-phone-volume text-red-500 mr-2"></i>緊急聯絡電話</h3>
+        <div class="space-y-2 text-xs">
+          <a href="tel:1155" class="flex items-center justify-between p-2.5 bg-thai-cream rounded-xl">
+            <span class="font-medium text-thai-text">觀光警察 (英語/中文)</span>
+            <span class="font-bold text-thai-tea"><i class="fa-solid fa-phone mr-1"></i>1155</span>
+          </a>
+          <a href="tel:191" class="flex items-center justify-between p-2.5 bg-thai-cream rounded-xl">
+            <span class="font-medium text-thai-text">報案/警察局</span>
+            <span class="font-bold text-thai-tea"><i class="fa-solid fa-phone mr-1"></i>191</span>
+          </a>
+          <a href="tel:1669" class="flex items-center justify-between p-2.5 bg-thai-cream rounded-xl">
+            <span class="font-medium text-thai-text">救護車/急救中心</span>
+            <span class="font-bold text-thai-tea"><i class="fa-solid fa-phone mr-1"></i>1669</span>
+          </a>
+          <div class="p-2.5 bg-thai-cream rounded-xl space-y-1">
+            <div class="font-bold text-thai-text">駐泰國台北經濟文化辦事處</div>
+            <div class="text-[11px] text-thai-lighttext">緊急聯絡電話：+66-81-666-4006</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 旅遊禁忌與注意事項 -->
+      <div class="bg-thai-card p-4 rounded-2xl shadow-sm border border-thai-sand/30 space-y-2">
+        <h3 class="font-bold text-sm text-thai-text"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-2"></i>旅遊禁忌與注意事項</h3>
+        <ul class="list-disc list-inside text-xs text-thai-lighttext space-y-1.5 leading-relaxed">
+          <li><strong>王室尊嚴：</strong>切勿批評或不敬泰王與王室成員，此行為在泰國觸犯重刑。</li>
+          <li><strong>寺廟穿著：</strong>進入寺廟不可穿無袖、短褲或破洞褲，需穿著過膝長褲或長裙。</li>
+          <li><strong>頭部與腳底：</strong>泰國人認為頭部神聖，切勿摸他人頭部；腳底不可對著人或佛像。</li>
+          <li><strong>電子菸禁令：</strong>泰國嚴格禁止攜帶、使用或進口電子菸，違者面臨重罰或監禁。</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-thai-card/95 backdrop-blur-md border-t border-thai-sand/40 z-40 px-3 py-2 flex justify-around">
+    <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-1 text-thai-tea">
+      <i class="fa-solid fa-calendar-days text-base"></i>
+      <span class="text-[10px] font-bold">行程</span>
+    </button>
+    <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-1 text-thai-lighttext">
+      <i class="fa-solid fa-book-open text-base"></i>
+      <span class="text-[10px] font-bold">導覽</span>
+    </button>
+    <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-1 text-thai-lighttext">
+      <i class="fa-solid fa-wallet text-base"></i>
+      <span class="text-[10px] font-bold">記帳</span>
+    </button>
+    <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-1 text-thai-lighttext">
+      <i class="fa-solid fa-square-check text-base"></i>
+      <span class="text-[10px] font-bold">清單</span>
+    </button>
+    <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-1 text-thai-lighttext">
+      <i class="fa-solid fa-circle-info text-base"></i>
+      <span class="text-[10px] font-bold">資訊</span>
+    </button>
+  </nav>
+
+  <!-- JS Logic -->
+  <script>
+    // ================= DATA DEFINITIONS =================
+    const itineraryData = {
+      1: [
+        { time: '20:30', title: '抵達桃園機場準備登機', highlight: true },
+        { time: '22:30', title: '搭乘長榮 BR61 班機飛往曼谷' },
+        { time: '01:25', title: '抵達曼谷蘇凡納布機場 (BKK)' },
+        { time: '03:30', title: 'Check in 民宿 (BTS ONNUT)' }
+      ],
+      2: [
+        { time: '09:30', title: '出門出發' },
+        { time: '10:00', title: 'SuperRich Exchange @Silom Plaza 換錢', maps: 'SuperRich Silom Plaza' },
+        { time: '10:30', title: 'SCR - Song Wat Coffee Roasters 吃早餐', maps: 'SCR Song Wat Coffee Roasters', food: 'SCR Coffee Bangkok' },
+        { time: '11:30', title: '漫步逛嵩越路 (Song Wat Road)', maps: 'Song Wat Road Bangkok' },
+        { time: '13:00', title: 'Ega / Songwat 吃午餐 (或看到喜歡的吃)', maps: 'Ega Songwat', food: 'Ega Songwat' },
+        { time: '14:00', title: '逛嵩越路 & Wanjai Cafe House 吃芒果糯米', maps: 'Wanjai Cafe House SongWat', food: 'Wanjai Cafe House' },
+        { time: '16:00', title: '搭船前往鄭王廟', maps: 'Wat Arun' },
+        { time: '17:30', title: '搭船返回' },
+        { time: '18:00', title: 'Horsamut 晚餐 (觀賞鄭王廟夕陽景致)', maps: 'Horsamut Bangkok', food: 'Horsamut Bangkok' },
+        { time: '20:00', title: '考山路夜市、小酌、泰式按摩', maps: 'Khao San Road' },
+        { time: '23:00', title: '返回民宿休息' }
+      ],
+      3: [
+        { time: '09:30', title: '出門出發' },
+        { time: '10:00', title: 'EmSphere 百貨逛街、吃早餐', maps: 'EmSphere Bangkok' },
+        { time: '13:30', title: 'Sri Trat Restaurant (必比登推薦泰菜)', maps: 'Sri Trat Restaurant and Bar', food: 'Sri Trat Bangkok' },
+        { time: '15:00', title: 'Terminal 21 百貨逛街採買', maps: 'Terminal 21 Asok' },
+        { time: '18:00', title: 'Lon Lon Local Diner 吃晚餐', maps: 'Lon Lon Local Diner', food: 'Lon Lon Local Diner' },
+        { time: '20:00', title: 'Le Du Kaan 高空酒吧夜景', maps: 'Le Du Kaan' },
+        { time: '22:30', title: '返回民宿休息' }
+      ],
+      4: [
+        { time: '10:00', title: '參拜四面佛 (Erawan Shrine)', maps: 'Erawan Shrine Bangkok' },
+        { time: '10:30', title: 'Central World & 暹羅廣場逛街', maps: 'Central World Bangkok' },
+        { time: '16:00', title: 'BIG C 超市伴手禮大採買', maps: 'Big C Supercenter Rajdamri' },
+        { time: '17:30', title: '返回民宿放戰利品' },
+        { time: '19:00', title: '席娜卡琳火車鐵道夜市 (市集/晚餐/按摩)', maps: 'Srinakarin Train Night Market' },
+        { time: '22:30', title: '返回民宿休息' }
+      ],
+      5: [
+        { time: '08:00', title: '【重要】包車出發 PATTAYA 一日遊', highlight: true, maps: 'Pattaya' },
+        { time: '10:30', title: '芭達雅景點遊覽與海景餐廳' },
+        { time: '18:00', title: '芭達雅特色晚餐' },
+        { time: '19:30', title: '觀賞芭達雅成人秀 / 特色表演', highlight: true },
+        { time: '21:30', title: '啟程返回曼谷民宿' }
+      ],
+      6: [
+        { time: '10:00', title: 'Iconsiam 巨型購物中心 & 室內水上市場', maps: 'Iconsiam' },
+        { time: '16:30', title: '【重要】回民宿拿行李，前往機場', highlight: true },
+        { time: '17:55', title: '抵達蘇凡納布機場辦理出境 check in' },
+        { time: '19:55', title: '搭乘 BR68 班機起飛返回台灣' },
+        { time: '22:00', title: '抵達桃園國際機場 ~ 賦歸！' }
+      ]
+    };
+
+    const defaultChecklist = [
+      "護照", "信用卡", "外幣、台幣", "網卡、esim", "換洗衣物、鞋子、拖鞋",
+      "首飾", "藥品（頭痛、胃藥、血壓藥、A酸...）", "保養品、化妝品",
+      "相機、記憶卡、電池、底片相機", "墨鏡", "手機吊繩",
+      "行動電源（放隨身）", "充電器", "雨傘"
+    ];
+
+    let currentDay = 1;
+    let base64PhotoTemp = "";
+
+    // ================= INITIALIZATION =================
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTimeline(1);
+      initChecklist();
+      renderMemos();
+      renderExpenses();
+      loadRate();
+    });
+
+    // ================= TAB SWITCHING =================
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-page').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+      document.querySelectorAll('.nav-btn').forEach(el => {
+        el.classList.remove('text-thai-tea');
+        el.classList.add('text-thai-lighttext');
+      });
+      document.getElementById(`nav-${tabId}`).classList.remove('text-thai-lighttext');
+      document.getElementById(`nav-${tabId}`).classList.add('text-thai-tea');
+    }
+
+    // ================= TIMELINE / PLAN =================
+    function switchDay(dayNum) {
+      currentDay = dayNum;
+      document.querySelectorAll('.day-btn').forEach(btn => {
+        btn.classList.remove('active-day', 'bg-thai-tea', 'text-white');
+        btn.classList.add('bg-thai-card', 'text-thai-lighttext');
+      });
+      const activeBtn = document.getElementById(`btn-day-${dayNum}`);
+      activeBtn.classList.add('active-day', 'bg-thai-tea', 'text-white');
+      activeBtn.classList.remove('bg-thai-card', 'text-thai-lighttext');
+
+      renderTimeline(dayNum);
+    }
+
+    function renderTimeline(day) {
+      const container = document.getElementById('timeline-container');
+      const items = itineraryData[day] || [];
+
+      container.innerHTML = items.map((item) => {
+        const isHighlight = item.highlight;
+        const bgClass = isHighlight ? 'bg-thai-tea/10 border-thai-tea/50' : 'bg-thai-card border-thai-sand/30';
+        const timeClass = isHighlight ? 'text-thai-tea font-bold' : 'text-thai-lighttext font-semibold';
+
+        return `
+          <div class="p-3.5 rounded-2xl border ${bgClass} shadow-sm flex items-start gap-3">
+            <!-- 時間靠左 -->
+            <div class="w-14 text-xs ${timeClass} shrink-0 pt-0.5 font-mono">
+              ${item.time}
+            </div>
+            
+            <!-- 內容區 -->
+            <div class="flex-1 space-y-2">
+              <div class="text-xs font-semibold text-thai-text leading-snug">
+                ${isHighlight ? `<span class="inline-block bg-thai-tea text-white text-[10px] px-1.5 py-0.5 rounded mr-1">重要</span>` : ''}
+                ${item.title}
+              </div>
+
+              ${item.maps || item.food ? `
+                <div class="flex gap-2 pt-1">
+                  ${item.maps ? `
+                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.maps)}" target="_blank" class="text-[10px] bg-thai-cream text-thai-tea px-2 py-1 rounded-md font-medium border border-thai-sand/50 hover:bg-thai-sand/30">
+                      <i class="fa-solid fa-map-pin mr-1"></i>Google Maps
+                    </a>
+                  ` : ''}
+                  ${item.food ? `
+                    <a href="https://www.google.com/search?q=${encodeURIComponent(item.food + ' 食記')}" target="_blank" class="text-[10px] bg-thai-cream text-thai-sage px-2 py-1 rounded-md font-medium border border-thai-sand/50 hover:bg-thai-sand/30">
+                      <i class="fa-solid fa-utensils mr-1"></i>查看食記
+                    </a>
+                  ` : ''}
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ================= WALLET & EXPENSES =================
+    function saveRate() {
+      const rate = document.getElementById('exchange-rate').value;
+      localStorage.setItem('thai_rate', rate);
+      calculateRate();
+    }
+
+    function loadRate() {
+      const savedRate = localStorage.getItem('thai_rate');
+      if (savedRate) {
+        document.getElementById('exchange-rate').value = savedRate;
+      }
+    }
+
+    function calculateRate() {
+      const inputStr = document.getElementById('calc-input').value.trim();
+      const rate = parseFloat(document.getElementById('exchange-rate').value) || 0.95;
+      let thbVal = 0;
+
+      if (inputStr) {
+        try {
+          // 安全過濾，僅允許數字與算式符號
+          const sanitized = inputStr.replace(/[^0-9+\-*/().]/g, '');
+          thbVal = eval(sanitized) || 0;
+        } catch (e) {
+          thbVal = 0;
+        }
+      }
+
+      const twdVal = Math.round(thbVal * rate);
+      document.getElementById('calc-result').innerText = `THB: ${thbVal} ➔ TWD: ${twdVal}`;
+      return { thb: thbVal, twd: twdVal };
+    }
+
+    function handlePhotoUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          // 使用 Canvas 壓縮為 150px 縮圖
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          const maxDim = 150;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > height) {
+            if (width > maxDim) {
+              height *= maxDim / width;
+              width = maxDim;
+            }
+          } else {
+            if (height > maxDim) {
+              width *= maxDim / height;
+              height = maxDim;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          ctx.drawImage(img, 0, 0, width, height);
+
+          base64PhotoTemp = canvas.toDataURL('image/jpeg', 0.6);
+          document.getElementById('photo-preview').src = base64PhotoTemp;
+          document.getElementById('photo-preview-container').classList.remove('hidden');
+          document.getElementById('photo-label-text').innerText = "已選取照片";
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function addExpense() {
+      const title = document.getElementById('expense-title').value.trim();
+      const amountTHB = parseFloat(document.getElementById('expense-amount').value);
+      const rate = parseFloat(document.getElementById('exchange-rate').value) || 0.95;
+
+      if (!title || isNaN(amountTHB)) {
+        alert('請輸入有效的品項名稱與金額');
+        return;
+      }
+
+      const amountTWD = Math.round(amountTHB * rate);
+      const newExpense = {
+        id: Date.now(),
+        title,
+        thb: amountTHB,
+        twd: amountTWD,
+        photo: base64PhotoTemp
+      };
+
+      const expenses = JSON.parse(localStorage.getItem('thai_expenses') || '[]');
+      expenses.unshift(newExpense);
+      localStorage.setItem('thai_expenses', JSON.stringify(expenses));
+
+      // Reset Form
+      document.getElementById('expense-title').value = '';
+      document.getElementById('expense-amount').value = '';
+      document.getElementById('expense-photo').value = '';
+      document.getElementById('photo-preview-container').classList.add('hidden');
+      document.getElementById('photo-label-text').innerText = "拍照 / 上傳收據縮圖";
+      base64PhotoTemp = "";
+
+      renderExpenses();
+    }
+
+    function deleteExpense(id) {
+      let expenses = JSON.parse(localStorage.getItem('thai_expenses') || '[]');
+      expenses = expenses.filter(item => item.id !== id);
+      localStorage.setItem('thai_expenses', JSON.stringify(expenses));
+      renderExpenses();
+    }
+
+    function renderExpenses() {
+      const expenses = JSON.parse(localStorage.getItem('thai_expenses') || '[]');
+      const container = document.getElementById('expense-list');
+      let totalTWD = 0;
+
+      if (expenses.length === 0) {
+        container.innerHTML = `<div class="text-xs text-center py-4 text-thai-lighttext">尚無消費紀錄</div>`;
+        document.getElementById('total-expenses').innerText = `總計: NT$ 0`;
+        return;
+      }
+
+      container.innerHTML = expenses.map(item => {
+        totalTWD += item.twd;
+        return `
+          <div class="bg-thai-card p-3 rounded-xl border border-thai-sand/30 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2.5">
+              ${item.photo ? `<img src="${item.photo}" class="w-10 h-10 rounded-lg object-cover border border-thai-sand">` : ''}
+              <div>
+                <div class="font-bold text-thai-text">${item.title}</div>
+                <div class="text-thai-lighttext text-[11px]">${item.thb} THB ≈ NT$ ${item.twd}</div>
+              </div>
+            </div>
+            <button onclick="deleteExpense(${item.id})" class="text-gray-300 hover:text-red-400 p-1">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('total-expenses').innerText = `總計: NT$ ${totalTWD}`;
+    }
+
+    // ================= CHECKLIST & MEMO =================
+    function initChecklist() {
+      let savedState = JSON.parse(localStorage.getItem('thai_checklist') || '{}');
+      const container = document.getElementById('checklist-items');
+
+      let checkedCount = 0;
+      container.innerHTML = defaultChecklist.map((item, idx) => {
+        const isChecked = savedState[idx] || false;
+        if (isChecked) checkedCount++;
+        return `
+          <label class="flex items-center gap-2 p-2 rounded-xl bg-thai-cream/50 cursor-pointer text-xs">
+            <input type="checkbox" onchange="toggleChecklist(${idx})" ${isChecked ? 'checked' : ''} class="accent-thai-tea w-4 h-4 rounded">
+            <span class="${isChecked ? 'line-through text-thai-lighttext' : 'text-thai-text font-medium'}">${item}</span>
+          </label>
+        `;
+      }).join('');
+
+      document.getElementById('checklist-progress').innerText = `${checkedCount}/${defaultChecklist.length}`;
+    }
+
+    function toggleChecklist(idx) {
+      let savedState = JSON.parse(localStorage.getItem('thai_checklist') || '{}');
+      savedState[idx] = !savedState[idx];
+      localStorage.setItem('thai_checklist', JSON.stringify(savedState));
+      initChecklist();
+    }
+
+    function addMemo() {
+      const text = document.getElementById('memo-input').value.trim();
+      if (!text) return;
+
+      const memos = JSON.parse(localStorage.getItem('thai_memos') || '[]');
+      memos.unshift({ id: Date.now(), text });
+      localStorage.setItem('thai_memos', JSON.stringify(memos));
+
+      document.getElementById('memo-input').value = '';
+      renderMemos();
+    }
+
+    function deleteMemo(id) {
+      let memos = JSON.parse(localStorage.getItem('thai_memos') || '[]');
+      memos = memos.filter(m => m.id !== id);
+      localStorage.setItem('thai_memos', JSON.stringify(memos));
+      renderMemos();
+    }
+
+    function renderMemos() {
+      const memos = JSON.parse(localStorage.getItem('thai_memos') || '[]');
+      const container = document.getElementById('memo-list');
+
+      if (memos.length === 0) {
+        container.innerHTML = `<div class="text-xs text-center py-2 text-thai-lighttext">尚無備忘錄</div>`;
+        return;
+      }
+
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+      container.innerHTML = memos.map(m => {
+        // 將網址轉換為按鈕
+        const formattedText = m.text.replace(urlRegex, url => {
+          return `<a href="${url}" target="_blank" class="inline-flex items-center gap-1 bg-thai-tea/10 text-thai-tea px-2 py-0.5 rounded text-[11px] font-bold my-1 break-all"><i class="fa-solid fa-link text-[10px]"></i> 開啟連結</a>`;
+        });
+
+        return `
+          <div class="bg-thai-cream p-3 rounded-xl border border-thai-sand/30 flex items-start justify-between text-xs space-x-2">
+            <div class="text-thai-text leading-relaxed whitespace-pre-wrap flex-1">${formattedText}</div>
+            <button onclick="deleteMemo(${m.id})" class="text-gray-300 hover:text-red-400 p-1 shrink-0">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+  </script>
+</body>
+</html>
